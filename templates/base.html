@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="frame template for the note emporium">
+    <meta name="author" content="William">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/base-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+</head>
+<style>
+
+    .pure-menu-horizontal {
+        background: #008080;
+        height: 10vh;
+        colour: #94F5FA;
+        vertical-align: middle;
+    }
+
+    .pure-menu-heading {
+        font-family: "Berlin Sans FB";
+        font-style: normal;
+        font-variant: full-width;
+        font-weight: bold;
+        font-size: xx-large;
+    }
+
+    .pure-menu-heading:hover {
+        background: none;
+    }
+
+    .button-logout {
+        color: #94F5FA;
+        text: "Log Out";
+        font-family: sans-serif;
+        background: #006767;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        text-align: right;
+    }
+
+    ul {
+        float: right;
+        vertical-align: middle;
+    }
+</style>
+
+<div class="pure-menu pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading pure-menu-link">NOTE EMPORIUM</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">display picture here</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">user info here</a></li>
+        <button class="button-logout pure-button">Log out</button>
+    </ul>
+</div>
+
+<style>
+    .custom-restricted {
+        /* To limit the menu width to the content of the menu: */
+        max-height: 90vh;
+        width: 260px;
+        display: inline-flex;
+        background: #008080;
+        font: 20px sans-serif;
+        /* Or set the width explicitly: */
+        /* width: 10em; */
+    }
+
+    .pure-menu-heading {
+        background: #008080;
+        color: #94F5FA;
+    }
+
+    .pure-menu-link {
+        color: #94F5FA;
+        outline-color: black;
+    }
+
+    .pure-menu-link:hover {
+        background: black;
+    }
+</style>
+<!-- I can't change the colour of the element when selected, not sure how, don't like the current colour -->
+<div class="pure-menu pure-menu-scrollable custom-restricted">
+
+    <!--  DO NOT WANT A HEADING CURRENTLY, OPEN TO CHANGE  <span class="pure-menu-heading">Subjects</span> -->
+
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Accounting and Finance</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Archaeology</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Business</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Celtic Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Central and Eastern<br/>European Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Chemistry</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Classics</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Comparative Literature</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Computing Science</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Dentistry</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Economics</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Education</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Engineering</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">English Language</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">English Literature</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">French</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Geographical and<br/>Earth Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">German</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Health and Wellbeing</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Hispanic Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">History</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">History of Art</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Immunology and<br/>Infection Diseases</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Information Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Italian</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Law</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Life Sciences</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Management</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Mathematics</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Medicine</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Molecular, Cell and<br/>Systems Biology</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Music</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Neuroscience</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Nursing and Health<br/>Care</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Philosophy</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Physics and <br/>Astronomy</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Politics</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Psychology</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Russian</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Scottish Literature</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sociology</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Statistics</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Theatre, Film and<br/>Television Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Theology and Religious<br/>Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Translation Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Urban Studies</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Veterinary Studies</a></li>
+    </ul>
+</div>
+</html>
