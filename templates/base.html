@@ -3,83 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="frame template for the note emporium">
     <meta name="author" content="William">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/base-min.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    {% load static %}
+    <link rel="stylesheet" href="../static/css/pure-min.css">
+    <link rel="stylesheet" href="../static/css/emporium_custom.css">
+
 </head>
-<style>
-
-    .pure-menu-horizontal {
-        background: #008080;
-        height: 10vh;
-        colour: #94F5FA;
-        vertical-align: middle;
-    }
-
-    .pure-menu-heading {
-        font-family: "Berlin Sans FB";
-        font-style: normal;
-        font-variant: full-width;
-        font-weight: bold;
-        font-size: xx-large;
-    }
-
-    .pure-menu-heading:hover {
-        background: none;
-    }
-
-    .button-logout {
-        color: #94F5FA;
-        text: "Log Out";
-        font-family: sans-serif;
-        background: #006767;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-        text-align: right;
-    }
-
-    ul {
-        float: right;
-        vertical-align: middle;
-    }
-</style>
-
-<div class="pure-menu pure-menu-horizontal">
-    <a href="#" class="pure-menu-heading pure-menu-link">NOTE EMPORIUM</a>
-    <ul class="pure-menu-list">
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">display picture here</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">user info here</a></li>
-        <button class="button-logout pure-button">Log out</button>
-    </ul>
-</div>
-
-<style>
-    .custom-restricted {
-        /* To limit the menu width to the content of the menu: */
-        max-height: 90vh;
-        width: 260px;
-        display: inline-flex;
-        background: #008080;
-        font: 20px sans-serif;
-        /* Or set the width explicitly: */
-        /* width: 10em; */
-    }
-
-    .pure-menu-heading {
-        background: #008080;
-        color: #94F5FA;
-    }
-
-    .pure-menu-link {
-        color: #94F5FA;
-        outline-color: black;
-    }
-
-    .pure-menu-link:hover {
-        background: black;
-    }
-</style>
+<body>
+<div id="layout">
 <!-- I can't change the colour of the element when selected, not sure how, don't like the current colour -->
 <div class="pure-menu pure-menu-scrollable custom-restricted">
 
@@ -135,4 +68,14 @@
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Veterinary Studies</a></li>
     </ul>
 </div>
+<div class="pure-menu pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading pure-menu-link"><img src="{% static "images/logo1.JPG" %}" alt="emporium logo"/></a>
+    <ul class="pure-menu-list-h">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link-b"><button class="pure-button">register</button></a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link-b"><button class="pure-button">Log in</button></a></li>
+    </ul>
+</div>
+<div class = content>{% block content %}{% endblock %}</div>
+</div>
+</body>
 </html>

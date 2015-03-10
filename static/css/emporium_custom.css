@@ -1,0 +1,76 @@
+
+/* Customization to limit height of the menu */
+.custom-restricted {            /* Properties of the sidebar */
+    height: 90%;
+    width: 250px;
+    top: 10vh;
+    background: #008080;
+    position: fixed;
+}
+
+.pure-menu-horizontal {
+    position: fixed;
+    background: #008080;
+    height: 10vh;
+    minimum-height: 100px;
+    font-size: 20px;
+    width: 100vw;
+}
+
+.pure-menu-list-h {
+    float: right;
+    align-items: baseline;
+}
+
+.pure-menu-link-b:hover, .pure-menu-link-b:visited {
+    background: #008080;
+}
+
+.pure-menu-link {           /* Change the properties of the links on the menus */
+    color: #94F5FA;
+}
+
+.pure-menu-link:hover, .pure-menu-link:visited{     /* properties of the links once clicked and during hover */
+    background: black;
+}
+
+body {                                 /* properties of the body of the text */
+    background: #E1E5E5;
+}
+
+.pure-button {
+    position: inherit;
+    background: #94F5FA;
+    color: #008080;
+    padding: 15px;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+#layout {
+    position: relative;
+    padding-left: 0;
+}
+    #layout.active #menu {
+        left: 150px;
+        width: 150px;
+    }
+
+    #layout.active .menu-link {
+        left: 150px;
+    }
+/*
+The content `<div>` is where all your content goes.
+*/
+.content {
+    position: fixed;
+    top: 15vh;
+    left: 300px;
+    right: 50px;
+    margin: 5px auto;
+    padding: 5px;
+    max-height: 90vh;
+    line-height: 1.6em;
+    background: white;
+}
