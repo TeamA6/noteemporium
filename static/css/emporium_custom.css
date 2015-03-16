@@ -1,9 +1,9 @@
 
 /* Customization to limit height of the menu */
 .custom-restricted {            /* Properties of the sidebar */
-    height: 90%;
+    height: 92%;
     width: 250px;
-    top: 10vh;
+    top: 8vh;
     background: #008080;
     position: fixed;
 }
@@ -11,10 +11,13 @@
 .pure-menu-horizontal {
     position: fixed;
     background: #008080;
-    height: 10vh;
-    minimum-height: 100px;
-    font-size: 20px;
+    height: 8vh;
     width: 100vw;
+}
+
+.menu-link {
+    width: 250px;
+    align-self: center;
 }
 
 .pure-menu-list-h {

@@ -16,8 +16,6 @@
 <!-- I can't change the colour of the element when selected, not sure how, don't like the current colour -->
 <div class="pure-menu pure-menu-scrollable custom-restricted">
 
-    <!--  DO NOT WANT A HEADING CURRENTLY, OPEN TO CHANGE  <span class="pure-menu-heading">Subjects</span> -->
-
     <ul class="pure-menu-list">
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Accounting and Finance</a></li>
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Archaeology</a></li>
@@ -68,13 +66,17 @@
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Veterinary Studies</a></li>
     </ul>
 </div>
-<div class="pure-menu pure-menu-horizontal">
-    <a href="#" class="pure-menu-heading pure-menu-link"><img src="{% static "images/logo1.JPG" %}" alt="emporium logo"/></a>
-    <ul class="pure-menu-list-h">
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link-b"><button class="pure-button">register</button></a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link-b"><button class="pure-button">Log in</button></a></li>
-    </ul>
-</div>
+    <div class="pure-menu pure-menu-horizontal">
+        <a href="#" class="menu-link" style="height:10vh; width:auto;"><img src="{% static "images/logo1.JPG" %}",
+        width = "250px", height = "100%" alt="emporium logo"/></a>
+
+        <!-- IF BLOCK: IF LOGGED IN, DISPLAY LOGIN INFORMATION, ELSE DISPLAY WELCOME MESSAGE -->
+
+            <ul class="pure-menu-list-h">
+                <li class="pure-menu-item" style = "color:#94F5FA; right:2vw">Welcome to the Note Emporium,
+                    you are not logged in.</li>
+            </ul>
+    </div>
 <div class = content>{% block content %}{% endblock %}</div>
 </div>
 </body>
