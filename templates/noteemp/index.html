@@ -3,39 +3,28 @@
 {% block content %}
 <body>
 <h1>The Note Emporium</h1>
+<p>text</p>
 
     <!-- IF BLOCK: if not logged in offer log in/registration forms, else display navigation links -->
 
-<form class="pure-form">
-    <fieldset>
-        <legend>To begin, please log in</legend>
 
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-
-        <label for="remember">
-            <input id="remember" type="checkbox"> Remember me
-        </label>
-
-        <button type="submit" class="pure-button pure-button-primary">Log in</button>
-    </fieldset>
-</form>
 
 <form class="pure-form">
     <fieldset class="pure-group">
         <legend>If you do not already have an account, please register</legend>
-        <input type="text" form="username" class="pure-input-1-2" placeholder="Username (This will be your id for the entire site">
+        <input type="text" form="username" class="pure-input-1-2" placeholder="Username (This will be your id for the entire site)">
         <input type="text" form="password" class="pure-input-1-2" placeholder="Password">
+        <input type="text" form="conf_password" class="pure-input-1-2" placeholder="Confirm Password">
         <input type="email" form="email" class="pure-input-1-2" placeholder="Email (you can use either a person or .ac.uk email)">
-        <input type="text" form="matric_num" class="pure-input-1-2" placeholder="Matriculation number">
-        <div class="pure-u-1 pure-u-md-1-2">
+        <!-- <input type="text" form="matric_num" class="pure-input-1-2" placeholder="Matriculation number"> -->
+        <!-- <div class="pure-u-1 pure-u-md-1-2">
             <label for="num_subjects" class="pure-g-1-2">How many subjects are you taking?</label>
             <select id="num_subjects" form="subject_num" class="pure-input-1-6">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
             </select>
-        </div>
+        </div> -->
     </fieldset>
     <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Register</button>
 </form>

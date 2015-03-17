@@ -73,6 +73,20 @@
         <!-- IF BLOCK: IF LOGGED IN, DISPLAY LOGIN INFORMATION, ELSE DISPLAY WELCOME MESSAGE -->
 
             <ul class="pure-menu-list-h">
+                <form class="pure-form">
+    <fieldset>
+        <legend>To begin, please log in</legend>
+
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+
+        <label for="remember">
+            <input id="remember" type="checkbox"> Remember me
+        </label>
+
+        <button type="submit" class="pure-button pure-button-primary">Log in</button>
+    </fieldset>
+</form>
                 <li class="pure-menu-item" style = "color:#94F5FA; right:2vw">Welcome to the Note Emporium,
                     you are not logged in.</li>
             </ul>
