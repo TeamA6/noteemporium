@@ -66,29 +66,25 @@
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Veterinary Studies</a></li>
     </ul>
 </div>
+
     <div class="pure-menu pure-menu-horizontal">
         <a href="#" class="menu-link" style="height:10vh; width:auto;"><img src="{% static "images/logo1.JPG" %}",
         width = "250px", height = "100%" alt="emporium logo"/></a>
 
         <!-- IF BLOCK: IF LOGGED IN, DISPLAY LOGIN INFORMATION, ELSE DISPLAY WELCOME MESSAGE -->
 
-            <ul class="pure-menu-list-h">
-                <form class="pure-form">
-    <fieldset>
-        <legend>To begin, please log in</legend>
-
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-
-        <label for="remember">
-            <input id="remember" type="checkbox"> Remember me
-        </label>
-
-        <button type="submit" class="pure-button pure-button-primary">Log in</button>
-    </fieldset>
-</form>
-                <li class="pure-menu-item" style = "color:#94F5FA; right:2vw">Welcome to the Note Emporium,
-                    you are not logged in.</li>
+        <ul class="pure-menu-list-h">
+            <ul>
+            <form class="pure-form">
+            <fieldset>
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <label for="remember">
+                    <input id="remember" type="checkbox"> Remember me
+                </label>
+                <button type="submit" class="pure-button pure-button-primary" style="padding: 8px;">Log in</button>
+            </fieldset>
+            </form>
             </ul>
     </div>
 <div class = content>{% block content %}{% endblock %}</div>

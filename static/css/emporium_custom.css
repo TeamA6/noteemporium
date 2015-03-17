@@ -9,9 +9,9 @@
 }
 
 .pure-menu-horizontal {
-    position: fixed;
+    position: relative;
     background: #008080;
-    height: 8vh;
+    height: 40px;
     width: 100vw;
 }
 
@@ -22,7 +22,10 @@
 
 .pure-menu-list-h {
     float: right;
-    align-items: baseline;
+    position: absolute;
+    left: 200px;
+    top: -15px;
+    font-size: small;
 }
 
 .pure-menu-link-b:hover, .pure-menu-link-b:visited {
