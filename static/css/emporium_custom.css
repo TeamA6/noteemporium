@@ -1,13 +1,17 @@
 
 /* Customization to limit height of the menu */
 .custom-restricted {            /* Properties of the sidebar */
-    height: 92%;
-    width: 250px;
-    top: 8vh;
+    list-style: none;
     background: #008080;
+    width: 250px;
+    /*height: 100%;*/
     position: fixed;
+    top: 10px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
 }
-
 .pure-menu-horizontal {
     position: relative;
     background: #008080;
