@@ -9,6 +9,7 @@ from note import views
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+
     #url(r'^note/', include('note.urls')),
    # (r'^', include('note.urls')),
     url(r'^note/', include('note.urls'), # dont know if this is corrrect

@@ -81,7 +81,7 @@ def list(request):
         context_instance=RequestContext(request)
     )
 
-def login(request):
+def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -99,3 +99,10 @@ def login(request):
     else:
         return render(request, 'noteemp/login.html', {})
 
+@login_required
+def user_logout(request):
+    # Since we know the user is logged in, we can now just log them out.
+    logout(request)
+
+    # Take the user back to the homepage.
+    return HttpResponseRedirect('/note/')

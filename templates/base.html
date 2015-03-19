@@ -72,7 +72,11 @@
         width = "250px", height = "100%" alt="emporium logo"/></a>
 
         <!-- IF BLOCK: IF LOGGED IN, DISPLAY LOGIN INFORMATION, ELSE DISPLAY WELCOME MESSAGE -->
-
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Log in</a>
+        {%  endif %}
         <ul class="pure-menu-list-h">
             <ul>
             <form class="pure-form">
@@ -82,7 +86,7 @@
                 <label for="remember">
                     <input id="remember" type="checkbox"> Remember me
                 </label>
-                <button type="submit" class="pure-button pure-button-primary" style="padding: 8px;">Log in</button>
+                <a href="{% url 'login' %}"><button type="submit" class="pure-button pure-button-primary" style="padding: 8px;">Log in</button></a>
             </fieldset>
             </form>
             </ul>
