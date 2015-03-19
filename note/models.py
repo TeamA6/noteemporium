@@ -39,6 +39,7 @@ class Note(models.Model):
     module = models.CharField(max_length=128)
     date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
     format = models.CharField(max_length=128)      # list of possible values
+
     def __unicode__(self):
         return self.title
 
