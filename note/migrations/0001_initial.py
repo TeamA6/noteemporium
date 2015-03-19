@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
-                ('date', models.DateField(verbose_name=b'19/03/2015 15:16')),
+                ('date', models.DateField(verbose_name=b'19/03/2015 17:32')),
                 ('format', models.CharField(max_length=128)),
                 ('uploader', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
@@ -67,6 +67,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('subjectTitle', models.CharField(max_length=128)),
+                ('slug', models.SlugField(unique=True)),
             ],
             options={
             },
