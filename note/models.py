@@ -54,13 +54,19 @@ class Rating(models.Model):
 
 
 class Module(models.Model):
-    ModuleSubject = models.CharField(max_length=128)
+    sub = models.CharField(max_length=128)
     moduleTitle = models.CharField(max_length=128)
     abb = models.CharField(max_length=128)
+    
     def __unicode__(self):
+<<<<<<< HEAD
         return self.modelTitle
 
 
+=======
+        return self.moduleTitle
+        
+>>>>>>> f4e82240c54585079fcf3d1e1c471fe7af509bd4
 class Subject(models.Model):
     subjectTitle = models.CharField(max_length=128)
     def __unicode__(self):
