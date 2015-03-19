@@ -50,3 +50,15 @@ class Rating(models.Model):
 
     def __unicode__(self):
         return self.note
+        
+class Module(models.Model):
+    ModuleSubject = models.CharField(max_length=128)
+    moduleTitle = models.CharField(max_length=128)
+    abb = models.CharField(max_length=128)
+    def __unicode__(self):
+        return self.modelTitle
+        
+class Subject(models.Model):
+    subjectTitle = models.CharField(max_length=128)
+    def __unicode__(self):
+        return self.subjectTitle
