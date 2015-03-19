@@ -3,6 +3,7 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from time import gmtime, strftime
 
+
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
     user = models.OneToOneField(User)
@@ -50,15 +51,21 @@ class Rating(models.Model):
 
     def __unicode__(self):
         return self.note
-        
+
+
 class Module(models.Model):
     ModuleSubject = models.CharField(max_length=128)
     moduleTitle = models.CharField(max_length=128)
     abb = models.CharField(max_length=128)
     def __unicode__(self):
         return self.modelTitle
-        
+
+
 class Subject(models.Model):
     subjectTitle = models.CharField(max_length=128)
     def __unicode__(self):
         return self.subjectTitle
+
+
+class Document(models.Model):
+    docfile = models.FileField(upload_to='documents/%Y/%m/%d') # maybe need unicode
