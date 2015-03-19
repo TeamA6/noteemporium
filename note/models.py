@@ -37,7 +37,6 @@ class Note(models.Model):
     title = models.CharField(max_length=128)
     subject = models.CharField(max_length=128)
     module = models.CharField(max_length=128)
-	
     date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
     format = models.CharField(max_length=128)      # list of possible values
     def __unicode__(self):
@@ -57,18 +56,14 @@ class Module(models.Model):
     sub = models.CharField(max_length=128)
     moduleTitle = models.CharField(max_length=128)
     abb = models.CharField(max_length=128)
-    
+
     def __unicode__(self):
-<<<<<<< HEAD
         return self.modelTitle
 
 
-=======
-        return self.moduleTitle
-        
->>>>>>> f4e82240c54585079fcf3d1e1c471fe7af509bd4
 class Subject(models.Model):
     subjectTitle = models.CharField(max_length=128)
+
     def __unicode__(self):
         return self.subjectTitle
 
