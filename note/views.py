@@ -111,11 +111,11 @@ def user_logout(request):
 def subject(request, subject_name_slug):
     context_dict = {}
     try:
-        subject = Subject.objects.get(slug=subject_name_slug)
+        subjectTitle = Subject.objects.get(slug=subject_name_slug)
         context_dict['subject_name'] = subject.name
-        modules = Module.objects.filter(subject=subject)
+        modules = Module.objects.filter(subjectTitle=subject)
         context_dict['modules'] = modules
-        context_dict['subject'] = subject
+        context_dict['subjectTitle'] = subject
     except Subject.DoesNotExist:
         print "The specified subject does not exist in our database."
 

@@ -17,6 +17,9 @@
 <div class="pure-menu pure-menu-scrollable custom-restricted">
 
     <ul class="pure-menu-list">
+{#        {% for subject in subjects %}#}            <!-- Trying to get slug working... Delete if you need -->
+{#    		<li class="pure-menu-item"><a href="{% url 'subject' subjectTitle.slug %}" class="pure-menu-link">{{ subject.name }}</a></li>#}
+{#		{% endfor %}#}
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Accounting and Finance</a></li>
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Archaeology</a></li>
         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Business</a></li>
