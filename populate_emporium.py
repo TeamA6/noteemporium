@@ -25,9 +25,11 @@ def populate():
         for p in Module.objects.filter(sub=c):
             print "- {0} - {1}".format(str(c), str(p))
 
+
 def add_sub(subjectTitle):
     s = Subject.objects.get_or_create(subjectTitle=subjectTitle)[0]
     return s
+
 
 def add_module(sub, moduleTitle, abb):
     m = Module.objects.get_or_create(sub=sub, moduleTitle=moduleTitle, abb=abb)
