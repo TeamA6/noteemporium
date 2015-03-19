@@ -71,25 +71,30 @@
         <a href="/note/" class="menu-link" style="height:10vh; width:auto;"><img src="{% static "images/logo1.JPG" %}",
         width = "250px", height = "100%" alt="emporium logo"/></a>
 
-        <!-- IF BLOCK: IF LOGGED IN, DISPLAY LOGIN INFORMATION, ELSE DISPLAY WELCOME MESSAGE -->
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}">Logout</a>
-        {% else %}
-            <a href="{% url 'login' %}">Log in</a>
-        {%  endif %}
         <ul class="pure-menu-list-h">
-            <ul>
-            <form class="pure-form">
+        {% if user.is_authenticated %}
+            <form id="base_logout" method="post" class="pure-form" action="/note/logout/" style="bottom:-25px;
+             color:#94F5Fa; right:-12%; padding:8px; font-size:large;">
+            Welcome, {{ user.get_username }}
+            {% csrf_token %}
+            <button class="pure-button" style="padding:8px; font-size:small"/>Logout</a>
+            </form>
+        {% else %}
+            <form id="base_login" method="post" class="pure-form" action="/note/login/" style="display:inline;">
+                {%  csrf_token %}
             <fieldset>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
                 <label for="remember">
                     <input id="remember" type="checkbox"> Remember me
                 </label>
-                <a href="{% url 'login' %}"><button type="submit" class="pure-button pure-button-primary" style="padding: 8px;">Log in</button></a>
+                <button class="pure-button pure-button-primary" style="padding: 8px;">Log in</button>
             </fieldset>
             </form>
-            </ul>
+        {%  endif %}
+        </ul>
+
+
     </div>
 <div class = content>{% block content %}{% endblock %}</div>
 </div>
