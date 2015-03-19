@@ -12,7 +12,7 @@ class ModuleAdmin(admin.ModelAdmin):
     list_display = ('sub','moduleTitle','abb')
 
 class SubjectAdmin(admin.ModelAdmin):
-    list_display = ('subjectTitle',)
+    prepopulated_fields = {'slug':('subjectTitle',)}
 
 
 admin.site.register(Rating, RatingAdmin)
@@ -20,6 +20,3 @@ admin.site.register(Note, NoteAdmin)
 admin.site.register(Module, ModuleAdmin)
 admin.site.register(Subject, SubjectAdmin)
 admin.site.register(UserProfile)
-
-# admin.site.register(Note)
-# admin.site.register(Rating)

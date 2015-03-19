@@ -64,6 +64,11 @@ class Module(models.Model):
 
 class Subject(models.Model):
     subjectTitle = models.CharField(max_length=128)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.subjectTitle)
+        super(Subject, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.subjectTitle

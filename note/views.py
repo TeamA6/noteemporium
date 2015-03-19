@@ -9,7 +9,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from note.forms import UserForm, UserProfileForm
-from note.models import Document  # myproject.myapp.models
+from note.models import Module, Subject, Document  # myproject.myapp.models
 from note.forms import DocumentForm
 
 
@@ -106,3 +106,21 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/note/')
+
+
+def subject(request, subject_name_slug):
+    context_dict = {}
+    try:
+        subject = Subject.objects.get(slug=subject_name_slug)
+        context_dict['subject_name'] = subject.name
+        modules = Module.objects.filter(subject=subject)
+        context_dict['modules'] = modules
+        context_dict['subject'] = subject
+    except Subject.DoesNotExist:
+        print "The specified subject does not exist in our database."
+
+    # Go render the response and return it to the client.
+    return render(request, 'noteemp/subject.html', context_dict)
+
+def module(request):
+    return render(request, 'noteemp/module.html', {})
