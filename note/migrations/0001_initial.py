@@ -13,6 +13,28 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Document',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('docfile', models.FileField(upload_to=b'documents/%Y/%m/%d')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Module',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('sub', models.CharField(max_length=128)),
+                ('moduleTitle', models.CharField(max_length=128)),
+                ('abb', models.CharField(max_length=128)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Note',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -20,7 +42,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
-                ('date', models.DateField(verbose_name=b'18/03/2015 12:33')),
+                ('date', models.DateField(verbose_name=b'19/03/2015 15:16')),
                 ('format', models.CharField(max_length=128)),
                 ('uploader', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
@@ -41,10 +63,19 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='Subject',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('subjectTitle', models.CharField(max_length=128)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='UserProfile',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('website', models.URLField(blank=True)),
                 ('picture', models.ImageField(upload_to=b'profile_images', blank=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],

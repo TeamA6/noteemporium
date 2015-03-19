@@ -59,7 +59,7 @@ class Module(models.Model):
     abb = models.CharField(max_length=128)
 
     def __unicode__(self):
-        return self.modelTitle
+        return self.moduleTitle
 
 
 class Subject(models.Model):
