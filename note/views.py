@@ -8,7 +8,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-
+from note.forms import UserForm, UserProfileForm
 from note.models import Document  # myproject.myapp.models
 from note.forms import DocumentForm
 
@@ -17,7 +17,7 @@ def index(request):
     response = render(request, 'noteemp/index.html',)
     return response
 
-from note.forms import UserForm, UserProfileForm
+
 
 def register(request):
 
@@ -80,3 +80,22 @@ def list(request):
         {'documents': documents, 'form': form},
         context_instance=RequestContext(request)
     )
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/note/')
+            else:
+                return HttpResponse("Your account is disabled.")
+        else:
+            print "Invalid login details: {0}, {1}".format(username, password)
+            return HttpResponse("Invalid login details supplied.")
+    else:
+        return render(request, 'noteemp/login.html', {})
+
