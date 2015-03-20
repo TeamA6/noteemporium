@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{#{% load note_extras %}#}
+{% load staticfiles %}
 
 {% block content %}
 <body>
@@ -10,6 +10,7 @@
     This site allows students to share their notes with others from their course.
     Notes are sorted by the module to which they belong. You can search by subject
     from the left, by title or by browsing the most recently updated notes, below.</p>
+    <center><img src="{% static "images/smallPartOfLogo.JPG" %}",width = "100px", height = "100%" alt="emporium logo"/><br><p style="font-family:Courier"> - The Note Emporium Team</p></center>
 	<a href="/note/register/">Register Here</a>
         <a href="/note/upload/">Upload Notes</a>
     </div> <div class="pure-u-1-12"></div> <div class="pure-u-5-12">
@@ -28,7 +29,6 @@
 </div>
 
     <!-- IF BLOCK: if not logged in offer log in/registration forms, else display navigation links -->
-{#<li class="pure-menu-item">{% get_subject_list subject %}</li>#}
 <h2>Recently uploaded notes</h2>
 <p1>... may eventually appear here</p1>
 </body>
