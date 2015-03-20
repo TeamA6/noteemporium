@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load note_extras %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -17,56 +18,63 @@
 <div class="pure-menu pure-menu-scrollable custom-restricted">
 
     <ul class="pure-menu-list">
-{#        {% for subject in subjects %}#}            <!-- Trying to get slug working... Delete if you need -->
+    <li class="pure-menu-item"><a href="#" class="pure-menu-link"></a></li>
+    <li class="pure-menu-item"><a href="#" class="pure-menu-link"></a></li>
+    <li class="pure-menu-item">{% get_subject_list %}</li>
+{#    {%  if subjects %}#}
+{#        {% for subject in subjects %}            <!-- Delete if you need -->#}
 {#    		<li class="pure-menu-item"><a href="{% url 'subject' subjectTitle.slug %}" class="pure-menu-link">{{ subject.name }}</a></li>#}
 {#		{% endfor %}#}
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Accounting and Finance</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Archaeology</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Business</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Celtic Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Central and Eastern<br/>European Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Chemistry</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Classics</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Comparative Literature</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Computing Science</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Dentistry</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Economics</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Education</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Engineering</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">English Language</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">English Literature</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">French</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Geographical and<br/>Earth Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">German</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Health and Wellbeing</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Hispanic Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">History</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">History of Art</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Immunology and<br/>Infection Diseases</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Information Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Italian</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Law</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Life Sciences</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Management</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Mathematics</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Medicine</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Molecular, Cell and<br/>Systems Biology</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Music</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Neuroscience</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Nursing and Health<br/>Care</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Philosophy</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Physics and <br/>Astronomy</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Politics</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Psychology</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Russian</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Scottish Literature</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sociology</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Statistics</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Theatre, Film and<br/>Television Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Theology and Religious<br/>Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Translation Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Urban Studies</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Veterinary Studies</a></li>
+{#    {% else %}#}
+{#        <li class="pure-menu-item">There are no subjects yet.</li>#}
+{#    {% endif %}#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Accounting and Finance</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Archaeology</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Business</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Celtic Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Central and Eastern<br/>European Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Chemistry</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Classics</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Comparative Literature</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Computing Science</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Dentistry</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Economics</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Education</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Engineering</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">English Language</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">English Literature</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">French</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Geographical and<br/>Earth Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">German</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Health and Wellbeing</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Hispanic Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">History</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">History of Art</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Immunology and<br/>Infection Diseases</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Information Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Italian</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Law</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Life Sciences</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Management</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Mathematics</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Medicine</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Molecular, Cell and<br/>Systems Biology</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Music</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Neuroscience</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Nursing and Health<br/>Care</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Philosophy</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Physics and <br/>Astronomy</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Politics</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Psychology</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Russian</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Scottish Literature</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sociology</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Statistics</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Theatre, Film and<br/>Television Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Theology and Religious<br/>Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Translation Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Urban Studies</a></li>#}
+{#        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Veterinary Studies</a></li>#}
     </ul>
 </div>
 

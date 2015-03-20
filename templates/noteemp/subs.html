@@ -1,0 +1,9 @@
+{% if subs %}
+    {% for s in subs %}
+        <li>{{ s.subjectTitle }}</li>
+    {% endfor %}
+
+{% else %}
+    <li> <strong >There are no subject present.</strong></li>
+
+{% endif %}
