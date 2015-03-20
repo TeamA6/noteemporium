@@ -1,6 +1,7 @@
 {% if subs %}
     {% for s in subs %}
-        <li>{{ s.subjectTitle }}</li>
+        {% if s == act_sub %} <li  class="active" > {% else  %} <li>{% endif %}
+            <a href="www.google.com">{{ s.subjectTitle }}</a></li>
     {% endfor %}
 
 {% else %}
