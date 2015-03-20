@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
-                ('date', models.DateField(verbose_name=b'19/03/2015 17:32')),
+                ('date', models.DateField(verbose_name=b'20/03/2015 12:20')),
                 ('format', models.CharField(max_length=128)),
                 ('uploader', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],

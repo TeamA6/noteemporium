@@ -11,6 +11,7 @@ from django.core.urlresolvers import reverse
 from note.forms import UserForm, UserProfileForm
 from note.models import Module, Subject, Document  # myproject.myapp.models
 from note.forms import DocumentForm
+from django.contrib.auth.models import User
 
 
 def index(request):
@@ -124,3 +125,15 @@ def subject(request, subject_name_slug):
 
 def module(request):
     return render(request, 'noteemp/module.html', {})
+
+@login_required
+def profile(request):
+    u = User.objects.get(username=request.user.username)
+    context_dict = {}
+    try:
+        up = UserProfile.objects.get(user=u)
+    except:
+        up = None
+    context_dict['user'] = u
+    context_dict['userprofile'] = up
+    return render(request, 'noteemp/profile.html', context_dict)
