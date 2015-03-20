@@ -84,21 +84,30 @@
 
         <ul class="pure-menu-list-h">
         {% if user.is_authenticated %}
-            <form id="base_logout" method="post" class="pure-form" action="/note/logout/" style="bottom:-25px;
-             color:#94F5Fa; right:-12%; padding:8px; font-size:large;">
-            Welcome, {{ user.get_username }}
+
+            <form id="base_logout" method="post" class="pure-form" action="/note/logout/" style="
+             color:#94F5Fa; padding:8px; font-size:large">
             {% csrf_token %}
-            <button class="pure-button" style="padding:8px; font-size:small"/>Logout</a>
+            <button class="pure-button" style="padding:8px; font-size:small; position:absolute;
+            right:10px; bottom: -5px"/>Logout</button>
             </form>
 
-            <form id="base_profile" method="post" class="pure-form" action="/note/profile/" style="bottom:-25px;
-             color:#94F5Fa; right:-12%; padding:8px; font-size:large;">
+            <form id="base_profile" method="post" class="pure-form" action="/note/profile/" style="
+            padding:8px; font-size:large;">
             {% csrf_token %}
-            <button class="pure-button" style="padding:8px; font-size:small"/>Profile</a>
+            <a style="position:absolute; right:150px; bottom:-5px">Welcome, {{ user.get_username }}</a>
+            <button class="pure-button pure-button-primary" style="padding:8px; font-size:small; right: 70px; bottom: -5px;
+            position: absolute"/>Profile</a>
             </form>
+
         {% else %}
+            <form id="base_register" method="get" class="pure-form" action="/note/register/" style="display:inline;">
+            {% csrf_token %}
+            <button class="pure-button pure-button-primary" style="padding: 8px; display: inline;
+            position: absolute; bottom: 8px; right: 510px">Register</button>
+            </form>
             <form id="base_login" method="post" class="pure-form" action="/note/login/" style="display:inline;">
-                {%  csrf_token %}
+            {%  csrf_token %}
             <fieldset>
                 <input type="text" placeholder="Username" name="username">
                 <input type="password" placeholder="Password" name="password">
@@ -107,10 +116,6 @@
                 </label>
                 <button class="pure-button pure-button-primary" style="padding: 8px;">Log in</button>
             </fieldset>
-            </form>
-            <form id="base_register" method="post" class="pure-form" action="/note/register/" style="display:inline;">
-            {% csrf_token %}
-            <button class="pure-button pure-button-primary" style="padding: 8px;">Register</button>
             </form>
         {%  endif %}
         </ul>
