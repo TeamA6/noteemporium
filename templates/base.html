@@ -86,12 +86,15 @@
         {% if user.is_authenticated %}
             <form id="base_logout" method="post" class="pure-form" action="/note/logout/" style="bottom:-25px;
              color:#94F5Fa; right:-12%; padding:8px; font-size:large;">
-            <form id="base_profile" method="post" class="pure-form" action="/note/profile/" style="bottom:-25px;
-             color:#94F5Fa; right:-12%; padding:8px; font-size:large;">
             Welcome, {{ user.get_username }}
             {% csrf_token %}
-            <button class="pure-button" style="padding:8px; font-size:small"/>Profile</a>
             <button class="pure-button" style="padding:8px; font-size:small"/>Logout</a>
+            </form>
+
+            <form id="base_profile" method="post" class="pure-form" action="/note/profile/" style="bottom:-25px;
+             color:#94F5Fa; right:-12%; padding:8px; font-size:large;">
+            {% csrf_token %}
+            <button class="pure-button" style="padding:8px; font-size:small"/>Profile</a>
             </form>
         {% else %}
             <form id="base_login" method="post" class="pure-form" action="/note/login/" style="display:inline;">
