@@ -9,8 +9,8 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from note.forms import UserForm, UserProfileForm
-from note.models import Module, Subject, Document  # myproject.myapp.models
-from note.forms import DocumentForm
+#from note.models import Module, Subject, Document  # myproject.myapp.models
+#from note.forms import DocumentForm
 from django.contrib.auth.models import User
 
 
