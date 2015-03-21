@@ -112,14 +112,16 @@ def user_logout(request):
 def subject(request, subject_name_slug):
     context_dict = {}
     try:
-        subjectTitle = Subject.objects.get(slug=subject_name_slug)
-        context_dict['subject_name'] = subject.name
-        modules = Module.objects.filter(subjectTitle=subject)
-        context_dict['modules'] = modules
-        context_dict['subjectTitle'] = subject
-    except Subject.DoesNotExist:
-        print "The specified subject does not exist in our database."
+        subject = Subject.objects.get(slug=subject_name_slug)
+        context_dict['subject_name'] = subject.subjectTitle
 
+        modules = Module.objects.filter(sub=subject) # filter returns >= 1 model instance
+
+        context_dict['modules'] = modules
+        context_dict['subject'] = subject
+
+    except Subject.DoesNotExist:
+        pass
     # Go render the response and return it to the client.
     return render(request, 'noteemp/subject.html', context_dict)
 

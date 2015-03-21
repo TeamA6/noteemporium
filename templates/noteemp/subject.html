@@ -3,12 +3,13 @@
 {% block content %}
 
 <h1>{{ subject_name }}</h1>
+  {% comment %}
 {% if subject %}
 		{% if modules %}
 		<ul>
 			{% for module in modules %}
 				<li>
-				<a href="{% url 'module' %}?module_id={{module.id}}">{{ module.title }}</a>
+				<a href="{% url 'module' %}?moduleTitle={{module.moduleTitle}}">{{ module.moduleTitle }}</a>
 				</li>
 			{% endfor %}
 			</ul>
@@ -18,4 +19,6 @@
 {% else %}
 	    <strong>No subject with this name.</strong>
 {% endif %}
+
+  {% endcomment %}
 {% endblock %}
