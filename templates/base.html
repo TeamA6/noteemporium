@@ -79,43 +79,25 @@
 </div>
 
     <div class="pure-menu pure-menu-horizontal">
-        <a href="/note/" class="menu-link" style="height:10vh; width:auto;"><img src="{% static "images/smallPartOfLogo.JPG" %}", height = "100%" alt="emporium logo"/><img src="{% static "images/logo1.JPG" %}", width = "250px", height = "100%" alt="emporium logo"/></a>
+        <a href="/note/" class="menu-link" style="height:10vh; width:auto;"><img src="{% static "images/smallPartOfLogo.jpg" %}", height = "100%" alt="emporium logo"/><img src="{% static "images/logo1.JPG" %}", width = "250px", height = "100%" alt="emporium logo"/></a>
 
         <ul class="pure-menu-list-h">
         {% if user.is_authenticated %}
 
-            <form id="base_logout" method="post" class="pure-form" action="/note/logout/" style="
-             color:#94F5Fa; padding:8px; font-size:large">
-            {% csrf_token %}
-            <button class="pure-button" style="padding:8px; font-size:small; position:absolute;
-            right:10px; bottom: -5px"/>Logout</button>
-            </form>
-
-            <form id="base_profile" method="post" class="pure-form" action="/note/profile/" style="
-            padding:8px; font-size:large;">
-            {% csrf_token %}
-            <a style="position:absolute; right:150px; bottom:-5px">Welcome, {{ user.get_username }}</a>
-            <button class="pure-button pure-button-primary" style="padding:8px; font-size:small; right: 70px; bottom: -5px;
-            position: absolute"/>Profile</a>
-            </form>
+            <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="/note/profile/" class="pure-menu-link">Profile</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
+            <li class="pure-menu-item"><a href="/note/upload/" class="pure-menu-link">Upload</a></li>
+            <li class="pure-menu-item"><a href="/note/logout/" class="pure-menu-link">Logout</a></li>
+            <li class="pure-menu-item">Welcome, {{ user.get_username }}</li>
 
         {% else %}
-            <form id="base_register" method="get" class="pure-form" action="/note/register/" style="display:inline;">
-            {% csrf_token %}
-            <button class="pure-button pure-button-primary" style="padding: 8px; display: inline;
-            position: absolute; bottom: 8px; right: 510px">Register</button>
-            </form>
-            <form id="base_login" method="post" class="pure-form" action="/note/login/" style="display:inline;">
-            {%  csrf_token %}
-            <fieldset>
-                <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password">
-                <label for="remember">
-                    <input id="remember" type="checkbox"> Remember me
-                </label>
-                <button class="pure-button pure-button-primary" style="padding: 8px;">Log in</button>
-            </fieldset>
-            </form>
+
+            <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
+            <li class="pure-menu-item"><a href="/note/register" class="pure-menu-link">Register</a></li>
+            <li class="pure-menu-item"><a href="/note/login" class="pure-menu-link">Login</a></li>
+
         {%  endif %}
         </ul>
 
