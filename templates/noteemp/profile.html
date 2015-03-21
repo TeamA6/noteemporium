@@ -12,8 +12,10 @@
 		{% endif %}
 		
 	<br/>
-	{% if userprofile.picture %}
+	{% if user.userprofile.picture %}
 		<img src="{{ userprofile.picture.url }}" />
+	{% else %}
+	    <img src="{% static "images/default" %}" alt="Default Picture" />
 	{% endif %}
 </div>
 {% endblock %}
