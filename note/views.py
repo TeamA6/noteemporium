@@ -127,6 +127,7 @@ def subject(request, subject_name_slug):
 
 def module(request,module_abb,subject_name_slug):
     context_dict = {}
+    context_dict['module'] = module_abb
     #try:
 
     #except Subject.DoesNotExist:
