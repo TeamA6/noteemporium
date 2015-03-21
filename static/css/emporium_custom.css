@@ -2,7 +2,10 @@
 /* Customization to limit height of the menu */
 .custom-restricted {            /* Properties of the sidebar */
     list-style: none;
-    background: #008080;
+    background: -webkit-linear-gradient(#FFFFFF, #94f5fa); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FFFFFF, #94f5fa); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FFFFFF, #94f5fa); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FFFFFF, #94f5fa); /* Standard syntax */
     width: 250px;
     /*height: 100%;*/
     position: fixed;
@@ -13,10 +16,12 @@
     z-index: 0;
 }
 .pure-menu-horizontal {
-    position: relative;
-    background: #008080;
+    position: absolute;
+  background: -webkit-linear-gradient(left, #FFFFFF, #94f5fa); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #FFFFFF, #94f5fa); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #FFFFFF, #94f5fa); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #FFFFFF, #94f5fa); /* Standard syntax */
     height: 40px;
-    width: 100vw;
 }
 
 .menu-link {
@@ -27,7 +32,7 @@
 .pure-menu-list-h {
     float: right;
     position: absolute;
-    right: 10px;
+    right: 100px;
     top: -15px;
     font-size: small;
 }
@@ -37,11 +42,11 @@
 }
 
 .pure-menu-link {           /* Change the properties of the links on the menus */
-    color: #94F5FA;
+    color: #000000;
 }
 
 .pure-menu-link:hover, .pure-menu-link:visited{     /* properties of the links once clicked and during hover */
-    background: black;
+    background: gold;
 }
 
 body {                                 /* properties of the body of the text */
@@ -61,6 +66,7 @@ This is the parent `<div>` that contains the menu and the content area.
 #layout {
     position: relative;
     padding-left: 0;
+
 }
     #layout.active #menu {
         left: 150px;
