@@ -11,6 +11,10 @@ from django.core.urlresolvers import reverse
 from note.forms import UserForm, UserProfileForm
 from note.models import Module, Subject
 from django.contrib.auth.models import User
+#from myproject.myapp.models import Note
+#from myproject.myapp.forms import DocumentForm
+from models import Document
+from forms import DocumentForm
 
 
 def index(request):
@@ -58,28 +62,28 @@ def register(request):
             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
 
 
-# def list(request):
-#     # Handle file upload
-#     if request.method == 'POST':
-#         form = DocumentForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             newdoc = Document(docfile = request.FILES['docfile'])
-#             newdoc.save()
-#
-#             # Redirect to the document list after POST
-#             return HttpResponseRedirect(reverse('note.views.list'))
-#     else:
-#         form = DocumentForm() # A empty, unbound form
-#
-#     # Load documents for the list page
-#     documents = Document.objects.all()
-#
-#     # Render list page with the documents and the form
-#     return render_to_response(
-#         'noteemp/upload.html',
-#         {'documents': documents, 'form': form},
-#         context_instance=RequestContext(request)
-#     )
+def list(request,module_abb,subject_name_slug):
+    # Handle file upload
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(reverse('notes.views.list')) #is this right???
+    else:
+        form = DocumentForm() # A empty, unbound form
+
+    # Load documents for the list page
+    documents = Document.objects.all()
+
+    # Render list page with the documents and the form
+    return render_to_response(
+        'noteemp/notes.html',
+        {'documents': documents, 'form': form,'module': module_abb, 'subject':subject_name_slug },
+        context_instance=RequestContext(request)
+    )
 
 def user_login(request):
     if request.method == 'POST':
