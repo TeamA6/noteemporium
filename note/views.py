@@ -124,8 +124,18 @@ def subject(request, subject_name_slug):
     # Go render the response and return it to the client.
     return render(request, 'noteemp/subject.html', context_dict)
 
-def module(request):
-    return render(request, 'noteemp/module.html', {})
+
+def module(request,module_abb,subject_name_slug):
+    context_dict = {}
+    #try:
+
+    #except Subject.DoesNotExist:
+     #   pass
+    # Go render the response and return it to the client.
+    return render(request, 'noteemp/notes.html', context_dict)
+
+
+
 
 @login_required
 def profile(request):
