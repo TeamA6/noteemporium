@@ -1,20 +1,17 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %} Profile {% endblock %}
-{% block body_block %}
+{% block content %}
 <div class="page-header">
 	<h1>User Profile</h1>
 </div>
-<!-- <div class="hero-unit">
+<div class="hero-unit">
 
 		<p>Username: {{ user.username }}</p>
 		<p>Email: {{ user.email }}</p>
-		{% if userprofile.website %}
-			<p>Website: <a href="{{ userprofile.website }}">{{ userprofile.website }}</a></p>
-		{% endif %}
+		
 	<br/>
 	{% if userprofile.picture %}
 		<img src="{{ userprofile.picture.url }}" />
 	{% endif %}
-</div> -->
+</div>
 {% endblock %}
