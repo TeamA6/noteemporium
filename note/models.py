@@ -51,3 +51,7 @@ class Module(models.Model):
 
     def __unicode__(self):
         return self.moduleTitle
+
+
+class Document(models.Model):
+    docfile = models.FileField(upload_to='documents/')
