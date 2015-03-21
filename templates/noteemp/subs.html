@@ -1,7 +1,7 @@
 {% if subs %}
     {% for s in subs %}
-        {% if s == act_sub %} <li  class="active" > {% else  %} <li>{% endif %}
-            <a href="www.google.com">{{ s.subjectTitle }}</a></li>
+        {% if s == act_sub %} <li  class="active" > {% else %} <li>{% endif %}
+            <a href="{% url 'subject'  s.slug %}">{{ s.subjectTitle }}</a></li>
     {% endfor %}
 
 {% else %}

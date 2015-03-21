@@ -20,7 +20,7 @@ class Note(models.Model):
     module = models.CharField(max_length=128)
     date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
     format = models.CharField(max_length=128)      # list of possible values
-
+    docfile = models.FileField(upload_to='documents/%Y/%m/%d') # maybe need unicode
     def __unicode__(self):
         return self.title
 
@@ -33,18 +33,8 @@ class Rating(models.Model):
     def __unicode__(self):
         return self.note
 
-
-class Module(models.Model):
-    sub = models.CharField(max_length=128)
-    moduleTitle = models.CharField(max_length=128)
-    abb = models.CharField(max_length=128)
-
-    def __unicode__(self):
-        return self.moduleTitle
-
-
 class Subject(models.Model):
-    subjectTitle = models.CharField(max_length=128)
+    subjectTitle = models.CharField(max_length=128, unique=True)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
@@ -54,6 +44,10 @@ class Subject(models.Model):
     def __unicode__(self):
         return self.subjectTitle
 
+class Module(models.Model):
+    sub = models.ForeignKey(Subject)
+    moduleTitle = models.CharField(max_length=128)
+    abb = models.CharField(max_length=128)
 
-class Document(models.Model):
-    docfile = models.FileField(upload_to='documents/%Y/%m/%d') # maybe need unicode
+    def __unicode__(self):
+        return self.moduleTitle

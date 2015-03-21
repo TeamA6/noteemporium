@@ -13,20 +13,9 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Document',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('docfile', models.FileField(upload_to=b'documents/%Y/%m/%d')),
-            ],
-            options={
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
             name='Module',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('sub', models.CharField(max_length=128)),
                 ('moduleTitle', models.CharField(max_length=128)),
                 ('abb', models.CharField(max_length=128)),
             ],
@@ -42,8 +31,9 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
-                ('date', models.DateField(verbose_name=b'20/03/2015 12:20')),
+                ('date', models.DateField(verbose_name=b'21/03/2015 13:46')),
                 ('format', models.CharField(max_length=128)),
+                ('docfile', models.FileField(upload_to=b'documents/%Y/%m/%d')),
                 ('uploader', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -66,7 +56,7 @@ class Migration(migrations.Migration):
             name='Subject',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('subjectTitle', models.CharField(max_length=128)),
+                ('subjectTitle', models.CharField(unique=True, max_length=128)),
                 ('slug', models.SlugField(unique=True)),
             ],
             options={
@@ -83,5 +73,11 @@ class Migration(migrations.Migration):
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='module',
+            name='sub',
+            field=models.ForeignKey(to='note.Subject'),
+            preserve_default=True,
         ),
     ]
