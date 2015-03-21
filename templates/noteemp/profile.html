@@ -13,7 +13,7 @@
 		
 	<br/>
 	{% if user.userprofile.picture %}
-		<img src="{{ userprofile.picture.url }}" />
+		<img src="{{ user.userprofile.picture.url }}" />
 	{% else %}
 	    <img src="{% static "images/default.jpg" %}" alt="Default Picture" />
 	{% endif %}
