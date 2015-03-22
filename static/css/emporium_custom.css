@@ -46,11 +46,11 @@
 }
 
 .pure-menu-link:hover, .pure-menu-link:visited{     /* properties of the links once clicked and during hover */
-    background: gold;
+    background: lightgray;
 }
 
 body {                                 /* properties of the body of the text */
-    background: #E1E5E5;
+    background: url(/static/images/12519624925_6dcdafbf23_b.jpg);
 }
 
 .pure-button {
@@ -89,4 +89,5 @@ The content `<div>` is where all your content goes.
     max-height: 90vh;
     line-height: 1.6em;
     background: white;
+    border: solid;
 }

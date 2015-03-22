@@ -14,8 +14,8 @@
 </head>
 <body>
 
-<div id="layout">
-    <div class="pure-menu pure-menu-horizontal" style="left:0px; max-width:301px">
+<div id="layout" style="font-family: Courier">
+    <div class="pure-menu pure-menu-horizontal" style="left:0px; max-width:300px">
         <a href="/note/" class="link" style="height:10vh; width:auto; height:0px">
         <img src="{% static "images/smallPartOfLogo.jpg" %}", height = "100%"
         alt="emporium logo"/><img src="{% static "images/logo1.jpg" %}", width = "250px",
@@ -29,7 +29,7 @@
         </ul>
     </div>
 
-    <div class="pure-menu pure-menu-horizontal" style="width:100%; display:inline; left:299px">
+    <div class="pure-menu pure-menu-horizontal" style="width: calc( 100% - 300px ); height:-moz-calc( 100% - 300px ); display:inline; left:299px">
         <ul class="pure-menu-list-h" style="font-size:medium; top:-13px; left:60px">
         {% if user.is_authenticated %}
 
@@ -38,7 +38,7 @@
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
             <li class="pure-menu-item"><a href="/note/upload/" class="pure-menu-link">Upload</a></li>
             <li class="pure-menu-item"><a href="/note/logout/" class="pure-menu-link">Logout</a></li>
-            <li class="pure-menu-item" style="right:-200px;">Welcome, {{ user.get_username }}!</li>
+            <li class="pure-menu-item" style="right:-100px;">Welcome, {{ user.get_username }}!</li>
 
         {% else %}
 
