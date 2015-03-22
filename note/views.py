@@ -16,16 +16,7 @@ from django.contrib.auth.models import User
 from models import Note
 from django.core.context_processors import csrf
 from forms import NoteForm
-<<<<<<< HEAD
-<<<<<<< HEAD
-#from search import get_query
-=======
-# from search import get_query
->>>>>>> origin/master
-=======
-# from search import get_query
->>>>>>> origin/master
-
+from note.search import get_query
 
 
 def index(request):

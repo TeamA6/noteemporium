@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>Search with Note Emporium</h1>
+    </div>
+
+<form method="get" action="/note/search/">
+          
+
+<label for="id_q">Search:</label>
+           <input type="text" name="q" id="id_q"/>
+           <input type="submit" value="Submit"/>
+		   {% if entry_query %}
+		     {{query_string}}
+		   {% endif %}
+
+        </form>
+{% endblock %}
