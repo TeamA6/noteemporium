@@ -63,19 +63,22 @@ def register(request):
             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
 
 
-def create(request):
+def create(request,subject_name_slug,module_abb):
     if request.POST:
         form = NoteForm(request.POST,request.FILES)
         if form.is_valid():
+            Note.title = subject_name_slug
+            Note.module = module_abb
             form.save()
 
-            return HttpResponseRedirect ('/note')  # should redirect to a success screen
+            return HttpResponseRedirect ('/note/')  # should redirect to a success screen
 
     else:
         form = NoteForm()
     context_dict = {}
     context_dict.update(csrf(request))
-
+    context_dict['subject'] = subject_name_slug
+    context_dict['module'] = module_abb
     context_dict['form'] = form  # pass the form to the html
 
     return render(request, 'noteemp/addNote.html', context_dict)

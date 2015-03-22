@@ -19,4 +19,4 @@ class NoteForm(forms.ModelForm):
 
     class Meta:
         model = Note
-        fields = ('title', 'subject', 'module','file')
+        fields = ('title','file')
