@@ -12,4 +12,5 @@ urlpatterns = patterns('',
         url(r'subject/(?P<subject_name_slug>[\w\-]+)/(?P<module_abb>[\w\-]+)/create/$',views.create, name='create'),
         url(r'^profile/', views.profile, name='profile'),
         url(r'^latest/', views.latest, name='latest'),
+        url(r'^search/', views.search, name='search'),
 		)
