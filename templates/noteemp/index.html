@@ -20,12 +20,7 @@
     <div class="pure-u-9-24">
 
 
-        {% if user.is_authenticated %}
-
-        User details here?
-        {{ user.get_username }}
-
-        {% else %}
+        {% if not user.is_authenticated %}
 
         <h1 style="font-family: Courier">Login</h1>
         <form method="post" class="pure-form" action="/note/login/">
@@ -35,10 +30,10 @@
                 <input type="password" class="pure-input-1" placeholder="Password" name="password">
             </fieldset>
             <button type="submit" style="padding:7px" class="pure-button pure-input-1-4 pure-button-primary">Login</button>
+            <hr>
         </form>
 
         {% endif %}
-        <hr>
         <h4>Lorenzo's flowchart will go here.</h4>
     </div>
 </div>
