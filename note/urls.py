@@ -10,5 +10,6 @@ urlpatterns = patterns('',
         url(r'subject/(?P<subject_name_slug>[\w\-]+)/$', views.subject, name='subject'),
         url(r'subject/(?P<subject_name_slug>[\w\-]+)/(?P<module_abb>[\w\-]+)/$', views.view_notes, name='view_notes'),
         url(r'subject/(?P<subject_name_slug>[\w\-]+)/(?P<module_abb>[\w\-]+)/create/$',views.create, name='create'),
-        url(r'^profile/', views.profile, name='profile')                                         #Don't delete, I am trying to get this working
+        url(r'^profile/', views.profile, name='profile'),
+        url(r'^latest/', views.latest, name='latest'),
 		)

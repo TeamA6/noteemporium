@@ -35,6 +35,7 @@
     right: 100px;
     top: -15px;
     font-size: small;
+    font-weight: bold;
 }
 
 .pure-menu-link-b:hover, .pure-menu-link-b:visited {
@@ -55,9 +56,11 @@ body {                                 /* properties of the body of the text */
 
 .pure-button {
     position: inherit;
-    background: #94F5FA;
-    color: #008080;
+    background: black;
+    color: white;
     padding: 15px;
+    font-family: Courier;
+    font-weight: bold;
 }
 
 /*

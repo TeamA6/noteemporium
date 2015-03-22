@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load note_extras %}
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -18,7 +19,7 @@
     <div class="pure-menu pure-menu-horizontal" style="left:0px; max-width:300px">
         <a href="/note/" class="link" style="height:10vh; width:auto; height:0px">
         <img src="{% static "images/black_logo_img.jpg" %}", height = "100%"
-        alt="emporium logo" style="left:15px; position:absolute"/><img src="{% static "images/black_text.jpg" %}",
+        alt="emporium logo" style="left:15px; position:absolute; border: thick black"/><img src="{% static "images/black_text.jpg" %}",
         width = auto height = "110%" alt="emporium logo" style="position:absolute; bottom:0px; left:65px"/></a>
     </div>
 
@@ -31,27 +32,25 @@
 
     <div class="pure-menu pure-menu-horizontal" style="width: calc( 100% - 300px ); height:-moz-calc( 100% - 300px );
      display:inline; left:299px">
-        <ul class="pure-menu-list-h" style="font-size:large; top:-17px; left:60px">
-        {% if user.is_authenticated %}
-<bold>
+        <ul class="pure-menu-list-h" style="font-size:large; top:-20px; left:8%">
             <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="/note/profile/" class="pure-menu-link">Profile</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
-            <li class="pure-menu-item"><a href="/note/upload/" class="pure-menu-link">Upload</a></li>
+            <li class="pure-menu-item"><a href="/note/latest" class="pure-menu-link">Latest</a></li>
+
+        {% if user.is_authenticated %}
+            <li class="pure-menu-item"><a href="/note/profile/" class="pure-menu-link">Profile</a></li>
             <li class="pure-menu-item"><a href="/note/logout/" class="pure-menu-link">Logout</a></li>
+
             {% if user.userprofile.picture %}
 		        <li class="pure-menu-item"><img src="{{ user.userprofile.picture.url }}"
-                style="position: absolute; max-height: 40px; right:-40px; bottom:-20px" />
+                style="position: absolute; max-height: 40px; right:-5%; bottom:-25px" />
 	        {% else %}
 	            <li class="pure-menu-item"><img src="{% static "images/default.jpg" %}"
-                alt="Default Picture" style="max-height: 40px" />
+                alt="Default Picture" style="max-height: 40px; right:-5%; bottom:-25px" />
 	        {% endif %} </li>
-            <li class="pure-menu-item" style="right:-40px; color:white">Welcome, {{ user.get_username }}!</li>
-</bold>
-        {% else %}
+            <li class="pure-menu-item" style="right:-5%; color:gray">Welcome, {{ user.get_username }}!</li>
 
-            <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
+        {% else %}
             <li class="pure-menu-item"><a href="/note/register" class="pure-menu-link">Register</a></li>
 
         {%  endif %}
