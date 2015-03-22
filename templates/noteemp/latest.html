@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    This will show the latest notes.
+    <h1>Latest Uploaded Notes</h1>
+    {% if notes %}
+        {{ notes }}
+    {% else %}
+        There are no notes yet.
+    {% endif %}
 {% endblock %}

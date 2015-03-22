@@ -167,6 +167,12 @@ def create(request, subject_name_slug, module_abb):
 
 def latest(request):
     context_dict = {}
+    try:
+        notes = Note.objects.order_by('-title')[:5]           # The parameter needs to change to date, as soon as date is put back in Note model
+        context_dict['notes'] = notes
+    except:
+        return("There are no notes yet.")
+
     return render(request, 'noteemp/latest.html', context_dict)
     
 def search(request):
