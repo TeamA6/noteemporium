@@ -30,9 +30,9 @@
         </ul>
     </div>
 
-    <div class="pure-menu pure-menu-horizontal" style="width: calc( 100% - 300px ); height:-moz-calc( 100% - 300px );
+    <div class="pure-menu pure-menu-horizontal" style="width: calc( 100% - 300px ); width:-moz-calc( 100% - 300px );
      display:inline; left:299px">
-        <ul class="pure-menu-list-h" style="font-size:large; top:-20px; left:8%">
+        <ul class="pure-menu-list-h" style="font-size:large; top:-18px; left:5%">
             <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="/note/search/" class="pure-menu-link">Search</a></li>
             <li class="pure-menu-item"><a href="/note/latest" class="pure-menu-link">Latest</a></li>
@@ -43,10 +43,10 @@
 
             {% if user.userprofile.picture %}
 		        <li class="pure-menu-item"><img src="{{ user.userprofile.picture.url }}"
-                style="position: absolute; max-height: 40px; right:-5%; bottom:-25px" />
+                style="position: absolute; max-height: 40px; left:3%; bottom:-22px" />
 	        {% else %}
 	            <li class="pure-menu-item"><img src="{% static "images/default.jpg" %}"
-                alt="Default Picture" style="max-height: 40px; right:-5%; bottom:-25px" />
+                alt="Default Picture" style="position:absolute; max-height: 40px; left:3% ; bottom:-22px" />
 	        {% endif %} </li>
             <li class="pure-menu-item" style="right:-5%; color:gray">Welcome, {{ user.get_username }}!</li>
 

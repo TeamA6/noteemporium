@@ -16,7 +16,7 @@ from django.contrib.auth.models import User
 from models import Note
 from django.core.context_processors import csrf
 from forms import NoteForm
-from search import get_query
+# from search import get_query
 
 
 
