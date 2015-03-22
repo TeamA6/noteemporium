@@ -62,7 +62,7 @@ def register(request):
             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
 
 
-def list(request,module_abb,subject_name_slug):
+def list(request):
     # Handle file upload
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
@@ -80,8 +80,8 @@ def list(request,module_abb,subject_name_slug):
 
     # Render list page with the documents and the form
     return render_to_response(
-        'noteemp/notes.html',
-        {'documents': documents, 'form': form,'module': module_abb, 'subject':subject_name_slug },
+        'noteemp/upload.html',
+        {'documents': documents, 'form': form },
         context_instance=RequestContext(request)
     )
 
