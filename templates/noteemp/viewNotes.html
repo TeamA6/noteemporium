@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if notes %}
+    <strong>There are notes</strong>
+
+    {% for note in notes %}
+    <li>{{ note.title }} + " " {{ note.file }}
+    {% endfor %}
+
+    {% else %}
+
+
+{% endif %}
+
+
+
+<strong>No Notes for this module!!!!</strong>
+
+    <a href = "{{ subject}} /">Add Note </a> <!-- change the link to /subject/CompSci/JOOSE/
+{% endblock %}

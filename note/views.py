@@ -11,7 +11,7 @@ from django.core.urlresolvers import reverse
 from note.forms import UserForm, UserProfileForm
 from note.models import Module, Subject
 from django.contrib.auth.models import User
-#from myproject.myapp.models import Note
+# from myproject.myapp.models import Note
 #from myproject.myapp.forms import DocumentForm
 from models import Note
 from django.core.context_processors import csrf
@@ -19,20 +19,17 @@ from forms import NoteForm
 
 
 def index(request):
-    response = render(request, 'noteemp/index.html',)
+    response = render(request, 'noteemp/index.html', )
     return response
 
 
-
 def register(request):
-
     registered = False
 
     if request.method == 'POST':
 
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileForm(data=request.POST)
-
 
         if user_form.is_valid() and profile_form.is_valid():
 
@@ -59,19 +56,19 @@ def register(request):
         profile_form = UserProfileForm()
 
     return render(request,
-            'noteemp/register.html',
-            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
+                  'noteemp/register.html',
+                  {'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
 
 
-def create(request,subject_name_slug,module_abb):
+def create(request, subject_name_slug, module_abb):
     if request.POST:
-        form = NoteForm(request.POST,request.FILES)
+        form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
             Note.title = subject_name_slug
             Note.module = module_abb
             form.save()
 
-            return HttpResponseRedirect ('/note/')  # should redirect to a success screen
+            return HttpResponseRedirect('/note/')  # should redirect to a success screen
 
     else:
         form = NoteForm()
@@ -82,6 +79,16 @@ def create(request,subject_name_slug,module_abb):
     context_dict['form'] = form  # pass the form to the html
 
     return render(request, 'noteemp/addNote.html', context_dict)
+
+
+def view_notes(request, subject_name_slug,module_abb):
+    args = {}
+    args.update(csrf(request))
+    args['notes'] = Note.objects.all()
+    args['subject'] = subject_name_slug
+    args['module'] = module_abb
+    return render(request,'noteemp/viewNotes.html', args)
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -101,6 +108,7 @@ def user_login(request):
     else:
         return render(request, 'noteemp/login.html', {})
 
+
 @login_required
 def user_logout(request):
     # Since we know the user is logged in, we can now just log them out.
@@ -116,7 +124,7 @@ def subject(request, subject_name_slug):
         subject = Subject.objects.get(slug=subject_name_slug)
         context_dict['subject_name'] = subject.subjectTitle
 
-        modules = Module.objects.filter(sub=subject) # filter returns >= 1 model instance
+        modules = Module.objects.filter(sub=subject)  # filter returns >= 1 model instance
 
         context_dict['modules'] = modules
         context_dict['subject'] = subject
@@ -126,20 +134,18 @@ def subject(request, subject_name_slug):
     # Go render the response and return it to the client.
     return render(request, 'noteemp/subject.html', context_dict)
 
-
-def module(request,module_abb,subject_name_slug):
+'''
+def module(request, module_abb, subject_name_slug):
     context_dict = {}
     context_dict['module'] = module_abb
     context_dict['subject'] = subject_name_slug
     #try:
 
     #except Subject.DoesNotExist:
-     #   pass
+    #   pass
     # Go render the response and return it to the client.
     return render(request, 'noteemp/addNote.html', context_dict)
-
-
-
+'''
 
 @login_required
 def profile(request):
