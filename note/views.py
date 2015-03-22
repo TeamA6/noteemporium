@@ -147,6 +147,7 @@ def create(request, subject_name_slug, module_abb):
         if form.is_valid():
             Note.subject = subject_name_slug
             u = User.objects.get(username=request.user.username)
+            print u
             Note.module = module_abb # not really abb
             Note.uploader = u
             form.save()
