@@ -16,6 +16,8 @@ from django.contrib.auth.models import User
 from models import Note
 from django.core.context_processors import csrf
 from forms import NoteForm
+from search import get_query
+
 
 
 def index(request):
@@ -64,10 +66,11 @@ def create(request, subject_name_slug, module_abb):
     if request.POST:
         form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
-            Note.title = subject_name_slug
-            Note.module = module_abb
+            Note.subject = subject_name_slug
+            Note.module = module_abb # not really abb
+            Note.note_id = 1
             form.save()
-
+            print "the form has been saved"
             return HttpResponseRedirect('/note/')  # should redirect to a success screen
 
     else:
@@ -162,3 +165,17 @@ def profile(request):
 def latest(request):
     context_dict = {}
     return render(request, 'noteemp/latest.html', context_dict)
+    
+def search(request):
+    query_string = ''
+    entry_query = None
+    if ('q' in request.GET) and request.GET['q'].strip():
+        query_string = request.GET['q']
+        
+        entry_query = get_query(query_string, 'moduleTitle')
+        
+        #found_entries = Entry.objects.filter(entry_query).order_by('-pub_date')
+
+    return render_to_response('noteemp/search.html',
+                          { 'query_string': query_string, 'entry_query': entry_query},
+                          context_instance=RequestContext(request))
