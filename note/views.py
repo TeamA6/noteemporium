@@ -14,7 +14,8 @@ from django.contrib.auth.models import User
 #from myproject.myapp.models import Note
 #from myproject.myapp.forms import DocumentForm
 from models import Note
-#from forms import DocumentForm
+from django.core.context_processors import csrf
+from forms import NoteForm
 
 
 def index(request):
@@ -70,16 +71,14 @@ def create(request):
 
             return HttpResponseRedirect ('/note')  # should redirect to a success screen
 
-        else:
-            form = NoteForm()
-    if request.GET:
-        return render(request, "fuck you",)
+    else:
+        form = NoteForm()
     context_dict = {}
     context_dict.update(csrf(request))
 
     context_dict['form'] = form  # pass the form to the html
 
-    return render(request, 'noteemp/addNote.html',context_dict)
+    return render(request, 'noteemp/addNote.html', context_dict)
 
 def user_login(request):
     if request.method == 'POST':
