@@ -39,7 +39,14 @@
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
             <li class="pure-menu-item"><a href="/note/upload/" class="pure-menu-link">Upload</a></li>
             <li class="pure-menu-item"><a href="/note/logout/" class="pure-menu-link">Logout</a></li>
-            <li class="pure-menu-item" style="right:-100px; color:white">Welcome, {{ user.get_username }}!</li>
+            {% if user.userprofile.picture %}
+		        <li class="pure-menu-item"><img src="{{ user.userprofile.picture.url }}"
+                style="position: absolute; max-height: 40px; right:-40px; bottom:-20px" />
+	        {% else %}
+	            <li class="pure-menu-item"><img src="{% static "images/default.jpg" %}"
+                alt="Default Picture" style="max-height: 40px" />
+	        {% endif %} </li>
+            <li class="pure-menu-item" style="right:-40px; color:white">Welcome, {{ user.get_username }}!</li>
 </bold>
         {% else %}
 
