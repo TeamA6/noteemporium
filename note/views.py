@@ -64,10 +64,11 @@ def create(request, subject_name_slug, module_abb):
     if request.POST:
         form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
-            Note.title = subject_name_slug
-            Note.module = module_abb
+            Note.subject = subject_name_slug
+            Note.module = module_abb # not really abb
+            Note.note_id = 1
             form.save()
-
+            print "the form has been saved"
             return HttpResponseRedirect('/note/')  # should redirect to a success screen
 
     else:
