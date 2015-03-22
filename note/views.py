@@ -16,7 +16,15 @@ from django.contrib.auth.models import User
 from models import Note
 from django.core.context_processors import csrf
 from forms import NoteForm
+<<<<<<< HEAD
+<<<<<<< HEAD
+#from search import get_query
+=======
 # from search import get_query
+>>>>>>> origin/master
+=======
+# from search import get_query
+>>>>>>> origin/master
 
 
 
@@ -181,7 +189,7 @@ def search(request):
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
         
-        entry_query = get_query(query_string, 'moduleTitle')
+        entry_query = get_query(query_string, ['moduleTitle'])
         
         #found_entries = Entry.objects.filter(entry_query).order_by('-pub_date')
 
