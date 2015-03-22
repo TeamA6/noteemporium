@@ -16,7 +16,19 @@ from django.contrib.auth.models import User
 from models import Note
 from django.core.context_processors import csrf
 from forms import NoteForm
+<<<<<<< Updated upstream
 from note.search import get_query
+=======
+
+#from search import get_query
+
+# from search import get_query
+
+
+# from search import get_query
+
+
+>>>>>>> Stashed changes
 
 
 def index(request):
@@ -141,17 +153,26 @@ def profile(request):
 
 @login_required
 def create(request, subject_name_slug, module_abb):
+
+    try:
+        sub = Subject.objects.get(slug=subject_name_slug)
+    except Subject.DoesNotExist:
+        sub = None
+
     if request.POST:
+
         form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
-            Note.subject = subject_name_slug
-            u = User.objects.get(username=request.user.username)
-            print u
-            Note.module = module_abb # not really abb
-            Note.uploader = u
-            form.save()
-            print "the form has been saved"
-            return HttpResponseRedirect('/note/')  # should redirect to a success screen
+           if sub:
+               page = form.save(commit=False)
+               page.subject = sub
+               page.module = module_abb
+               page.save()
+               #Note.subject = subject_name_slug
+               # u = User.objects.get(username=request.user.username)
+               # Note.module = module_abb # not really abb
+               # form.save()
+               return HttpResponseRedirect('/note/')  # should redirect to a success screen
 
     else:
         form = NoteForm()

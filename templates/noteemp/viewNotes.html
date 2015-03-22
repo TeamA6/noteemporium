@@ -6,17 +6,19 @@
     <strong>There are notes</strong>
 
     {% for note in notes %}
-    <li>{{ note.title }} + " " {{ note.file }}
+    <li><a href="static/staticstatic/media/uploaded_files/{{ note.file }}/">{{ note.title }} </a></li>
+<!-- url here needs to change -->
     {% endfor %}
 
     {% else %}
 
+    <strong>No Notes for this module!!!!</strong>
 
 {% endif %}
 
+{
 
 
-<strong>No Notes for this module!!!!</strong>
 
     <a href = "{{ subject}} /">Add Note </a> <!-- change the link to /subject/CompSci/JOOSE/
 {% endblock %}
