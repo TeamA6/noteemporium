@@ -13,8 +13,8 @@ from note.models import Module, Subject
 from django.contrib.auth.models import User
 #from myproject.myapp.models import Note
 #from myproject.myapp.forms import DocumentForm
-from models import Document
-from forms import DocumentForm
+from models import Note
+#from forms import DocumentForm
 
 
 def index(request):
@@ -62,28 +62,23 @@ def register(request):
             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
 
 
-def list(request):
-    # Handle file upload
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
+def create(request):
+    if request.POST:
+        form = NoteForm(request.POST,request.FILES)
         if form.is_valid():
-            newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.save()
+            form.save()
 
-            # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('notes.views.list')) #is this right???
-    else:
-        form = DocumentForm() # A empty, unbound form
+            return HttpResponseRedirect ('/note')  # should redirect to a success screen
 
-    # Load documents for the list page
-    documents = Document.objects.all()
+        else:
+            form = NoteForm()
 
-    # Render list page with the documents and the form
-    return render_to_response(
-        'noteemp/upload.html',
-        {'documents': documents, 'form': form },
-        context_instance=RequestContext(request)
-    )
+        context_dict = {}
+        context_dict.update(csrf(request))
+
+        context_dict['form'] = form  # pass the form to the html
+
+        return render(request, 'noteemp/addNote.html',context_dict)
 
 def user_login(request):
     if request.method == 'POST':
@@ -132,12 +127,13 @@ def subject(request, subject_name_slug):
 def module(request,module_abb,subject_name_slug):
     context_dict = {}
     context_dict['module'] = module_abb
+    context_dict['subject'] = subject_name_slug
     #try:
 
     #except Subject.DoesNotExist:
      #   pass
     # Go render the response and return it to the client.
-    return render(request, 'noteemp/notes.html', context_dict)
+    return render(request, 'noteemp/addNote.html', context_dict)
 
 
 

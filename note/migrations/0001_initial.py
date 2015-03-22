@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import note.models
 from django.conf import settings
 
 
@@ -16,7 +17,7 @@ class Migration(migrations.Migration):
             name='Document',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('docfile', models.FileField(upload_to=b'documents/')),
+                ('docfile', models.FileField(upload_to=b'documents/%Y/%m/%d')),
             ],
             options={
             },
@@ -41,9 +42,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
-                ('date', models.DateField(verbose_name=b'21/03/2015 18:08')),
-                ('format', models.CharField(max_length=128)),
-                ('docfile', models.FileField(upload_to=b'documents/%Y/%m/%d')),
+                ('file', models.FileField(upload_to=note.models.get_upload_file_name)),
                 ('uploader', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={

@@ -15,8 +15,8 @@ class UserProfileForm(forms.ModelForm):
         fields = ('picture',)
 
 
-class DocumentForm(forms.Form):
-    docfile = forms.FileField(
-        label='Select a file',
-        help_text='max. 42 megabytes'
-    )
+class NoteForm(forms.ModelForm):
+
+    class Meta:
+        model = Note
+        fields = ('title', 'subject', 'module','file')
