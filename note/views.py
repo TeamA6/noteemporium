@@ -72,13 +72,14 @@ def create(request):
 
         else:
             form = NoteForm()
+    if request.GET:
+        return render(request, "fuck you",)
+    context_dict = {}
+    context_dict.update(csrf(request))
 
-        context_dict = {}
-        context_dict.update(csrf(request))
+    context_dict['form'] = form  # pass the form to the html
 
-        context_dict['form'] = form  # pass the form to the html
-
-        return render(request, 'noteemp/addNote.html',context_dict)
+    return render(request, 'noteemp/addNote.html',context_dict)
 
 def user_login(request):
     if request.method == 'POST':
