@@ -1,8 +1,11 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Minimal Django File Upload Example</title>   
+    </head>
+    <body>
+    <!-- List of uploaded documents -->
     {% if documents %}
         <ul>
         {% for document in documents %}
@@ -24,6 +27,5 @@
             </p>
             <p><input type="submit" value="Upload" /></p>
         </form>
-
-
-{% endblock %}
+    </body>
+</html> 
