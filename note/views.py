@@ -60,28 +60,6 @@ def register(request):
                   {'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
 
 
-def create(request, subject_name_slug, module_abb):
-    if request.POST:
-        form = NoteForm(request.POST, request.FILES)
-        if form.is_valid():
-            Note.subject = subject_name_slug
-            Note.module = module_abb # not really abb
-            Note.note_id = 1
-            form.save()
-            print "the form has been saved"
-            return HttpResponseRedirect('/note/')  # should redirect to a success screen
-
-    else:
-        form = NoteForm()
-    context_dict = {}
-    context_dict.update(csrf(request))
-    context_dict['subject'] = subject_name_slug
-    context_dict['module'] = module_abb
-    context_dict['form'] = form  # pass the form to the html
-
-    return render(request, 'noteemp/addNote.html', context_dict)
-
-
 def view_notes(request, subject_name_slug,module_abb):
     args = {}
     args.update(csrf(request))
@@ -159,6 +137,30 @@ def profile(request):
     context_dict['user'] = u
     context_dict['userprofile'] = up
     return render(request, 'noteemp/profile.html', context_dict)
+
+@login_required
+def create(request, subject_name_slug, module_abb):
+    if request.POST:
+        form = NoteForm(request.POST, request.FILES)
+        if form.is_valid():
+            Note.subject = subject_name_slug
+            u = User.objects.get(username=request.user.username)
+            Note.module = module_abb # not really abb
+            Note.uploader = u
+            form.save()
+            print "the form has been saved"
+            return HttpResponseRedirect('/note/')  # should redirect to a success screen
+
+    else:
+        form = NoteForm()
+    context_dict = {}
+    context_dict.update(csrf(request))
+    context_dict['subject'] = subject_name_slug
+    context_dict['module'] = module_abb
+    context_dict['form'] = form  # pass the form to the html
+
+    return render(request, 'noteemp/addNote.html', context_dict)
+
 
 def latest(request):
     context_dict = {}

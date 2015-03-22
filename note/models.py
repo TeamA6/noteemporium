@@ -20,8 +20,8 @@ class Note(models.Model):
     title = models.CharField(max_length=128)
     subject = models.CharField(max_length=128)
     module = models.CharField(max_length=128)
-    #date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
-    #format = models.CharField(max_length=128)      # list of possible values
+    # date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
+    # format = models.CharField(max_length=128)      # list of possible values
     file = models.FileField(upload_to=get_upload_file_name) # get a string to save file to
 
     def __unicode__(self):

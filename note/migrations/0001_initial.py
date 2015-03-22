@@ -38,7 +38,6 @@ class Migration(migrations.Migration):
             name='Note',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('note_id', models.IntegerField(unique=True)),
                 ('title', models.CharField(max_length=128)),
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
