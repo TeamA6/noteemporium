@@ -158,3 +158,7 @@ def profile(request):
     context_dict['user'] = u
     context_dict['userprofile'] = up
     return render(request, 'noteemp/profile.html', context_dict)
+
+def latest(request):
+    context_dict = {}
+    return render(request, 'noteemp/latest.html', context_dict)
