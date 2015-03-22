@@ -5,7 +5,7 @@
 <body>
 <div class="pure-g">
     <div class="pure-u-1-2">
-    <h1>The Note Emporium</h1>
+    <h1 style="font-family: Courier">The Note Emporium</h1>
     <p style="font-family:Courier">Welcome to the Note Emporium, Glasgow University's second best note sharing site.
     This site allows students to share their notes with others from their course.
     Notes are sorted by the module to which they belong. You can search by subject
@@ -14,9 +14,11 @@
      alt="emporium logo"/><br><p style="font-family:Courier"> - The Note Emporium Team</p></center>
     </div>
 
-    <div class="pure-u-1-12"></div> <!-- Space between items -->
+    <div class="pure-u-1-24 verticalLine"></div>
+    <div class="pure-u-1-24"></div><!-- Space between items -->
 
-    <div class="pure-u-5-12">
+    <div class="pure-u-9-24">
+
 
         {% if user.is_authenticated %}
 
@@ -25,19 +27,18 @@
 
         {% else %}
 
-        <legend style="font-family: Courier">Log in here</legend>
-        <hr>
+        <h1 style="font-family: Courier">Login</h1>
         <form method="post" class="pure-form" action="/note/login/">
         {%  csrf_token %}
             <fieldset class="pure-group">
                 <input type="text" class="pure-input-1" placeholder="Username" name="username">
                 <input type="password" class="pure-input-1" placeholder="Password" name="password">
             </fieldset>
-            <button type="submit" class="pure-button pure-input-1 pure-button-primary">Login</button>
+            <button type="submit" style="padding:7px" class="pure-button pure-input-1-4 pure-button-primary">Login</button>
         </form>
 
         {% endif %}
-
+        <hr>
         <h4>Lorenzo's flowchart will go here.</h4>
     </div>
 </div>
