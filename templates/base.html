@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load note_extras %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="frame template for the note emporium">
+    <meta name="author" content="William">
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/pure-min.css">
+    <link rel="stylesheet" href="/static/css/emporium_custom.css">
+
+</head>
+<body>
+
+<div id="layout" style="font-family: Courier">
+    <div class="pure-menu pure-menu-horizontal" style="left:0px; max-width:300px">
+        <a href="/note/" class="link" style="height:10vh; width:auto; height:0px">
+        <img src="{% static "images/black_logo_img.jpg" %}", height = "100%"
+        alt="emporium logo" style="left:15px; position:absolute"/><img src="{% static "images/black_text.jpg" %}",
+        width = auto height = "110%" alt="emporium logo" style="position:absolute; bottom:0px; left:65px"/></a>
+    </div>
+
+
+    <div class="pure-menu pure-menu-scrollable custom-restricted">
+        <ul class="pure-menu-list">
+        {% get_subject_list subject %}
+        </ul>
+    </div>
+
+    <div class="pure-menu pure-menu-horizontal" style="width: calc( 100% - 300px ); height:-moz-calc( 100% - 300px );
+     display:inline; left:299px">
+        <ul class="pure-menu-list-h" style="font-size:large; top:-17px; left:60px">
+        {% if user.is_authenticated %}
+<bold>
+            <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="/note/profile/" class="pure-menu-link">Profile</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
+            <li class="pure-menu-item"><a href="/note/upload/" class="pure-menu-link">Upload</a></li>
+            <li class="pure-menu-item"><a href="/note/logout/" class="pure-menu-link">Logout</a></li>
+            <li class="pure-menu-item" style="right:-100px; color:white">Welcome, {{ user.get_username }}!</li>
+</bold>
+        {% else %}
+
+            <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Search</a></li>
+            <li class="pure-menu-item"><a href="/note/register" class="pure-menu-link">Register</a></li>
+
+        {%  endif %}
+        </ul>
+    </div>
+    <div class = content>
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

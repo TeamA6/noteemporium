@@ -1,0 +1,98 @@
+
+/* Customization to limit height of the menu */
+.custom-restricted {            /* Properties of the sidebar */
+    list-style: none;
+    background: -webkit-linear-gradient(#FFFFFF, #94f5fa); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FFFFFF, #94f5fa); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FFFFFF, #94f5fa); /* For Firefox 3.6 to 15 */
+    background: black; /* Standard syntax */
+    width: 250px;
+    /*height: 100%;*/
+    position: fixed;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}
+.pure-menu-horizontal {
+    position: absolute;
+  background: -webkit-linear-gradient(left, #FFFFFF, #94f5fa, red, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #FFFFFF, #94f5fa); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #FFFFFF, #94f5fa); /* For Firefox 3.6 to 15 */
+  background: black; /* Standard syntax */
+    height: 40px;
+}
+
+.menu-link {
+    width: 250px;
+    align-self: center;
+}
+
+.pure-menu-list-h {
+    float: right;
+    position: absolute;
+    right: 100px;
+    top: -15px;
+    font-size: small;
+}
+
+.pure-menu-link-b:hover, .pure-menu-link-b:visited {
+    background: blueviolet;
+}
+
+.pure-menu-link {           /* Change the properties of the links on the menus */
+    color: lightgray;
+}
+
+.pure-menu-link:hover, .pure-menu-link:visited{     /* properties of the links once clicked and during hover */
+    background: midnightblue;
+}
+
+body {                                 /* properties of the body of the text */
+    background: url(/static/images/12519624925_6dcdafbf23_b.jpg);
+}
+
+.pure-button {
+    position: inherit;
+    background: #94F5FA;
+    color: #008080;
+    padding: 15px;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+#layout {
+    position: relative;
+    padding-left: 0;
+
+}
+    #layout.active #menu {
+        left: 150px;
+        width: 150px;
+    }
+
+    #layout.active .menu-link {
+        left: 150px;
+    }
+/*
+The content `<div>` is where all your content goes.
+*/
+.content {
+    position: fixed;
+    top: 50px;
+    left: 400px;
+    right: 100px;
+    bottom: 100px;
+    margin: 5px auto;
+    padding: 5px;
+    max-height: 90vh;
+    line-height: 1.6em;
+    background: white;
+    border: solid;
+}
+
+.verticalLine {
+    border-right: thin dashed #000000;
+}

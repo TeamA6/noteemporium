@@ -1,0 +1,10 @@
+{% if subs %}
+    {% for s in subs %}
+            <li class="pure-menu-item"><a href="{% url 'subject'  s.slug %}" style="font-family:Courier" class="pure-menu-link">
+                {{ s.subjectTitle }}</a></li>
+    {% endfor %}
+
+{% else %}
+    <li> <strong >There are no subject present.</strong></li>
+
+{% endif %}
