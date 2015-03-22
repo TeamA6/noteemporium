@@ -17,7 +17,11 @@ from models import Note
 from django.core.context_processors import csrf
 from forms import NoteForm
 <<<<<<< HEAD
+<<<<<<< HEAD
 #from search import get_query
+=======
+# from search import get_query
+>>>>>>> origin/master
 =======
 # from search import get_query
 >>>>>>> origin/master
