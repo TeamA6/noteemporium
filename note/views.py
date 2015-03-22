@@ -183,7 +183,7 @@ def search(request):
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
         
-        entry_query = get_query(query_string, 'moduleTitle')
+        entry_query = get_query(query_string, ['moduleTitle'])
         
         #found_entries = Entry.objects.filter(entry_query).order_by('-pub_date')
 
