@@ -4,18 +4,72 @@
 <div class="page-header">
 	<h1>User Profile</h1>
 </div>
-<div class="hero-unit">
+<div class="pure-g">
+    <div class="hero-unit pure-u-1-3" style="font-family: Courier">
 
-		<p>Username: {{ user.username }}</p>
-		{% if user.email %}
-		<p>Email: {{ user.email }}</p>
-		{% endif %}
-		
-	<br/>
-	{% if user.userprofile.picture %}
-		<img src="{{ user.userprofile.picture.url }}" />
-	{% else %}
-	    <img src="{% static "images/default.jpg" %}" alt="Default Picture" />
-	{% endif %}
+            <p>Username: {{ user.username }}</p>
+            {% if user.email %}
+            <p>Email: {{ user.email }}</p>
+            {% endif %}
+
+        <br/>
+        {% if user.userprofile.picture %}
+            <img src="{{ user.userprofile.picture.url }}" style="width:90%; height:auto" />
+        {% else %}
+            You have been given the default display picture
+            <img src="{% static "images/default.jpg" %}" alt="Default Picture" style="width:90%; height:auto"/>
+        {% endif %}
+    </div>
+    <div class="pure-u-1-2" style="font-family: Courier">
+        <h3>Your recently uploaded notes</h3>
+        <table class="pure-table">
+            <thead style="background:black; color:white">
+                <tr>
+                    <th>Title</th>
+                    <th>Module</th>
+                    <th>Subject</th>
+                    <th>Format</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pure-table-odd">
+                    <td>a note</td>
+                    <td>a module</td>
+                    <td>a subject</td>
+                    <td>a format</td>
+                    <td>a rating</td>
+                </tr>
+                <tr>
+                    <td>a note</td>
+                    <td>a module</td>
+                    <td>a subject</td>
+                    <td>a format</td>
+                    <td>a rating</td>
+                </tr>
+                <tr class="pure-table-odd">
+                    <td>a note</td>
+                    <td>a module</td>
+                    <td>a subject</td>
+                    <td>a format</td>
+                    <td>a rating</td>
+                </tr>
+                <tr>
+                    <td>a note</td>
+                    <td>a module</td>
+                    <td>a subject</td>
+                    <td>a format</td>
+                    <td>a rating</td>
+                </tr>
+                <tr class="pure-table-odd">
+                    <td>a note</td>
+                    <td>a module</td>
+                    <td>a subject</td>
+                    <td>a format</td>
+                    <td>a rating</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
