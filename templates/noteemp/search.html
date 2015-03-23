@@ -21,6 +21,10 @@
 			  {% for note in notes %}
 			    {% if note.title == result %}
 		             <li><a href= "/static/staticstatic/media/{{ note.file }}/">{{result}}</a></li>
+					 {{note.subject}}</br>
+					 {{note.module}}</br>
+					 {{note.uploader}}</br>
+					 {{note.date}}</br>
 			         </br>
 			 {% endif %} 
 			 {% endfor %}
