@@ -15,8 +15,8 @@ class UserProfile(models.Model):
 
 
 class Note(models.Model):
-    #uploader = models.ForeignKey(User)
-    #note_id = models.IntegerField(unique=True)
+    uploader = models.ForeignKey(User)
+    # note_id = models.IntegerField(unique=True)
     title = models.CharField(max_length=128)
     subject = models.CharField(max_length=128)
     module = models.CharField(max_length=128)

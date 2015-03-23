@@ -3,7 +3,7 @@ from django.contrib import admin
 from note.models import Note, Rating, UserProfile, Module, Subject
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('title','subject', 'module')#, note_id #'date', 'format') removed for time being
+    list_display = ('title','subject', 'module','uploader')#, note_id #'date', 'format') removed for time being
 
 class RatingAdmin(admin.ModelAdmin):
     list_display = ('note','stars')

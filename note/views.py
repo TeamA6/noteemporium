@@ -16,9 +16,8 @@ from django.contrib.auth.models import User
 from models import Note
 from django.core.context_processors import csrf
 from forms import NoteForm
-<<<<<<< Updated upstream
 from note.search import get_query
-=======
+
 
 #from search import get_query
 
@@ -26,9 +25,6 @@ from note.search import get_query
 
 
 # from search import get_query
-
-
->>>>>>> Stashed changes
 
 
 def index(request):
@@ -156,6 +152,7 @@ def create(request, subject_name_slug, module_abb):
 
     try:
         sub = Subject.objects.get(slug=subject_name_slug)
+        u = User.objects.get(username=request.user.username)
     except Subject.DoesNotExist:
         sub = None
 
@@ -167,6 +164,7 @@ def create(request, subject_name_slug, module_abb):
                page = form.save(commit=False)
                page.subject = sub
                page.module = module_abb
+               page.uploader = request.user
                page.save()
                #Note.subject = subject_name_slug
                # u = User.objects.get(username=request.user.username)

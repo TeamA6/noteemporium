@@ -42,6 +42,7 @@ class Migration(migrations.Migration):
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
                 ('file', models.FileField(upload_to=note.models.get_upload_file_name)),
+                ('uploader', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
             },
