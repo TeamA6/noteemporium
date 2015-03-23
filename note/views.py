@@ -223,8 +223,8 @@ def search(request):
     notes = Note.objects.all()
     context_dict['notes']=notes
 
-    for note in notes:
-        print note.title
+    #for note in notes:
+        #print note.title
 
     noteTitles=[]
     for i in notes:
@@ -252,7 +252,7 @@ def search(request):
         context_dict['results']=results
         
         #found_entries = Entry.objects.filter(entry_query).order_by('-pub_date')
-    print context_dict
+    #print context_dict
 
     return render_to_response('noteemp/search.html',
                           context_dict,
