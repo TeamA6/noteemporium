@@ -2,7 +2,10 @@
 {% block content %}
     <h1>Latest Uploaded Notes</h1>
     {% if notes %}
-        {{ notes }}
+        {% for note in notes %}
+           <li>{{ note }}</li>
+
+        {% endfor %}
     {% else %}
         There are no notes yet.
     {% endif %}
