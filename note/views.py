@@ -156,12 +156,15 @@ def profile(request):
     context_dict = {}
     try:
         up = UserProfile.objects.get(user=u)
-        notes = Notes.objects.get(uploader=request.user).order_by('-date')[:5]
-        context_dict['recent_notes'] = notes
+        blah = Notes.objects.get(uploader=request.user).order_by('-date')[:5]
+        print "defined blah as:" + blah
+        context_dict['recent_notes'] = blah
     except:
         up = None
+        context_dict['recent_notes'] = 'none'
     context_dict['user'] = u
     context_dict['userprofile'] = up
+    context_dict['notes'] = Note.objects.all()
     return render(request, 'noteemp/profile.html', context_dict)
 
 @login_required

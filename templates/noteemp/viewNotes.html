@@ -2,6 +2,8 @@
 {% load staticfiles %}
 {% block content %}
 
+<h1 style="font-family:courier">{{ subject }} / {{ module }}</h1>
+
     <table class="pure-table">
             <thead style="background:black; color:white">
                 <tr>
@@ -21,12 +23,14 @@
                     <td>{{ note.date }}</td>
                 </tr>
             {% endif %}
+            {% endfor %}
             </tbody>
     </table>
 
-{% endfor %}
+
 {% if note in module %}
     <strong>No Notes for this module!!!!</strong>
 {% endif %}
-    <a href = " {{ request.build_absolute_uri }}create/">Add Note </a> <!-- change the link to /subject/CompSci/JOOSE/
+    <br/>
+    <button class="pure-button" href = " {{ request.build_absolute_uri }}create/">Add Note </button>
 {% endblock %}
