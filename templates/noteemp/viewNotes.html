@@ -1,21 +1,32 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-<!-- need diferent condition here -->
-{% for note in notes %}
-        {% if note.module == module %}
-            <li><a target="_blank" href="/static/staticstatic/media/{{ note.file }}">{{ note.title }}</a></li>
 
+    <table class="pure-table">
+            <thead style="background:black; color:white">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for note in notes %}
+            {% if note.module == module %}
+                <tr>
+                    <td><a target="_blank"
+                            href="/static/staticstatic/media/{{ note.file }}">
+                            {{ note.title }}</a></td>
+                    <td>{{ note.uploader }}</td>
+                    <td>{{ note.date }}</td>
+                </tr>
+            {% endif %}
+            </tbody>
+    </table>
 
-        {% endif %}
-<!-- url here needs to change -->
-    {% endfor %}
-
+{% endfor %}
+{% if note in module %}
     <strong>No Notes for this module!!!!</strong>
-
-
-
-
-
+{% endif %}
     <a href = " {{ request.build_absolute_uri }}create/">Add Note </a> <!-- change the link to /subject/CompSci/JOOSE/
 {% endblock %}
