@@ -87,6 +87,30 @@ def user_login(request):
     else:
         return render(request, 'noteemp/login.html', {})
 
+def add_module(request, subject_name_slug):
+
+    try:
+        sub = Subject.objects.get(slug=subject_name_slug)
+    except Subject.DoesNotExist:
+                sub = None
+
+    if request.method == 'POST':
+        form = ModuleForm(request.POST)
+        if form.is_valid():
+            if sub:
+                module = form.save(commit=False)
+                module.sub = sub
+                page.save()
+                # probably better to use a redirect here.
+                return HttpResponseRedirect('/note/')
+        else:
+            print form.errors
+    else:
+        form = ModuleForm()
+
+    context_dict = {'form':form, 'subject': sub}
+
+    return render(request, 'rango/add_module.html', context_dict)
 
 @login_required
 def user_logout(request):
@@ -175,6 +199,16 @@ def create(request, subject_name_slug, module_abb):
 
     return render(request, 'noteemp/addNote.html', context_dict)
 
+
+def user_latest(request):
+    context_dict = {}
+    try:
+        notes = Notes.objects.get(uploader=request.user).order_by('-date')[:5]
+        context_dict['recent_notes'] = notes
+    except:
+        return("No recent Notes.")
+
+    return render(request, '')
 
 def latest(request):
     context_dict = {}
