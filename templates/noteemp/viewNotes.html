@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-{% if notes %}
-    <strong>There are notes</strong>
-
-    {% for note in notes %}
+<!-- need diferent condition here -->
+{% for note in notes %}
         {% if note.module == module %}
 
              <li><a href="static/staticstatic/media/uploaded_files/{{ note.file }}/">{{ note.title }} </a></li>
@@ -14,15 +11,11 @@
 <!-- url here needs to change -->
     {% endfor %}
 
-    {% else %}
-
     <strong>No Notes for this module!!!!</strong>
 
-{% endif %}
-
-{
 
 
 
-    <a href = "{{ subject}} /">Add Note </a> <!-- change the link to /subject/CompSci/JOOSE/
+
+    <a href = " {{ request.build_absolute_uri }}create/">Add Note </a> <!-- change the link to /subject/CompSci/JOOSE/
 {% endblock %}
