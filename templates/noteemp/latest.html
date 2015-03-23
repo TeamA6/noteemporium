@@ -3,7 +3,8 @@
     <h1>Latest Uploaded Notes</h1>
     {% if notes %}
         {% for note in notes %}
-           <li>{{ note }}</li>
+            {{ note.date }}
+            <li><a target="_blank" href="/static/staticstatic/media/{{ note.file }}">{{ note.title }}</a></li>
 
         {% endfor %}
     {% else %}
