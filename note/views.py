@@ -200,6 +200,16 @@ def create(request, subject_name_slug, module_abb):
     return render(request, 'noteemp/addNote.html', context_dict)
 
 
+def user_latest(request):
+    context_dict = {}
+    try:
+        notes = Notes.objects.get(uploader=request.user).order_by('-date')[:5]
+        context_dict['recent_notes'] = notes
+    except:
+        return("No recent Notes.")
+
+    return render(request, '')
+
 def latest(request):
     context_dict = {}
     try:
