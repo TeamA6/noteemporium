@@ -216,14 +216,45 @@ def latest(request):
     
 def search(request):
     query_string = ''
-    entry_query = None
+    context_dict = {}
+    results=[]
+    
+    notes = None
+    notes = Note.objects.all()
+    context_dict['notes']=notes
+
+    for note in notes:
+        print note.title
+
+    noteTitles=[]
+    for i in notes:
+        j = str(i.title).lower()
+        noteTitles += [j]
+    #context_dict['noteTitles'] = noteTitles
+
+    foundNotes1 = None
+    foundNotes=[]
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string = request.GET['q']
         
-        entry_query = get_query(query_string)
+        foundNotes1 = get_query(query_string)
+        for i in foundNotes1:
+            j = str(i).lower()
+            foundNotes += [j]
+
+    for a in foundNotes:
+        for b in noteTitles:
+            if a==b:
+                results+=[a]
+
+        #context_dict['foundNotes']=foundNotes
+        #context_dict['query_string']=query_string
+        context_dict['results']=results
         
         #found_entries = Entry.objects.filter(entry_query).order_by('-pub_date')
+    print context_dict
 
     return render_to_response('noteemp/search.html',
-                          { 'query_string': query_string, 'entry_query': entry_query},
+                          context_dict,
                           context_instance=RequestContext(request))
+
