@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import note.models
+import datetime
 from django.conf import settings
+import note.models
 
 
 class Migration(migrations.Migration):
@@ -41,6 +42,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('subject', models.CharField(max_length=128)),
                 ('module', models.CharField(max_length=128)),
+                ('date', models.DateTimeField(default=datetime.datetime.now, blank=True)),
                 ('file', models.FileField(upload_to=note.models.get_upload_file_name)),
                 ('uploader', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],

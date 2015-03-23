@@ -2,6 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from time import gmtime, strftime, time
+from datetime import datetime
 
 def get_upload_file_name(instance, filename): # instance?
     return "uploaded_files/%s_%s" % (str(time()).replace('.','_'),filename)
@@ -20,7 +21,7 @@ class Note(models.Model):
     title = models.CharField(max_length=128)
     subject = models.CharField(max_length=128)
     module = models.CharField(max_length=128)
-    # date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
+    date = models.DateTimeField(default=datetime.now, blank=True)#date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
     # format = models.CharField(max_length=128)      # list of possible values
     file = models.FileField(upload_to=get_upload_file_name) # get a string to save file to
 

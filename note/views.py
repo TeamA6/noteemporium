@@ -13,7 +13,7 @@ from note.models import Module, Subject
 from django.contrib.auth.models import User
 # from myproject.myapp.models import Note
 #from myproject.myapp.forms import DocumentForm
-from models import Note
+from models import *
 from django.core.context_processors import csrf
 from forms import NoteForm
 from note.search import get_query
@@ -165,6 +165,8 @@ def create(request, subject_name_slug, module_abb):
                page.subject = sub
                page.module = module_abb
                page.uploader = request.user
+               #page.date = models.DateTimeField(auto_now_add=True, blank=True)
+               #page.date = datetime.datetime.now()
                page.save()
                #Note.subject = subject_name_slug
                # u = User.objects.get(username=request.user.username)
