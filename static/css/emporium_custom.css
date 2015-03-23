@@ -2,9 +2,6 @@
 /* Customization to limit height of the menu */
 .custom-restricted {            /* Properties of the sidebar */
     list-style: none;
-    background: -webkit-linear-gradient(#FFFFFF, #94f5fa); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#FFFFFF, #94f5fa); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#FFFFFF, #94f5fa); /* For Firefox 3.6 to 15 */
     background: black; /* Standard syntax */
     width: 250px;
     /*height: 100%;*/
@@ -17,10 +14,7 @@
 }
 .pure-menu-horizontal {
     position: absolute;
-  background: -webkit-linear-gradient(left, #FFFFFF, #94f5fa, red, yellow); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, #FFFFFF, #94f5fa); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, #FFFFFF, #94f5fa); /* For Firefox 3.6 to 15 */
-  background: black; /* Standard syntax */
+    background: black; /* Standard syntax */
     height: 40px;
 }
 
@@ -84,10 +78,10 @@ The content `<div>` is where all your content goes.
 */
 .content {
     position: fixed;
-    top: 50px;
-    left: 400px;
-    right: 100px;
-    bottom: 100px;
+    top: calc( 40px + 5% );
+    left: calc( 300px + 5% );
+    right: 5%;
+    bottom: 5%;
     margin: 5px auto;
     padding: 5px;
     max-height: 90vh;
@@ -98,4 +92,10 @@ The content `<div>` is where all your content goes.
 
 .verticalLine {
     border-right: thin dashed #000000;
+}
+
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
