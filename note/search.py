@@ -20,7 +20,8 @@ def get_query(query_string):
     ''' Returns a query, that is a combination of Q objects. That combination
         aims to search keywords within a model by testing the given search fields.
     '''
-    found_notes= Note.objects.filter(title__contains=query_string)
+    found_notes = Note.objects.filter(title__contains=query_string)
+    found = list(found_notes)
 ##    for term in terms:
 ##        or_query = None # Query to search for a given term in each field
 ##        for field_name in search_fields:
@@ -33,4 +34,7 @@ def get_query(query_string):
 ##            query = or_query
 ##        else:
 ##            query = query & or_query
-    return found_notes
+    #print found, "hello"
+    #print type(found)
+    return found
+
