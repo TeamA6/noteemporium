@@ -20,6 +20,8 @@
 		    {% for result in results %}
 			  {% for note in notes %}
 			    {% if note.title == result %}
+				     Here are the results:</br>
+					 </br>
 		             <li><a href= "/static/staticstatic/media/{{ note.file }}/">{{result}}</a></li>
 					 {{note.subject}}</br>
 					 {{note.module}}</br>
