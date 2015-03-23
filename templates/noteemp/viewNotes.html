@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block content %}
 <!-- need diferent condition here -->
 {% for note in notes %}
         {% if note.module == module %}
+            <li><a href="/{{ STATIC_URL }}/uploaded_file/{{ note.file }}">{{ note.title }}</a></li>
+            <a href="/static/staticstatic/media/uploaded_files/{{ note.file }}">{{ note.title }}</a></li>
 
-             <li><a href="static/staticstatic/media/uploaded_files/{{ note.file }}/">{{ note.title }} </a></li>
 
         {% endif %}
 <!-- url here needs to change -->
