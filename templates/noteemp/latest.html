@@ -2,10 +2,32 @@
 {% block content %}
     <h1>Latest Uploaded Notes</h1>
     {% if notes %}
-        {% for note in notes %}
-           <li>{{ note }}</li>
-
-        {% endfor %}
+        <table class="pure-table">
+            <thead style="background:black; color:white">
+                <tr>
+                    <th>Title</th>
+                    <th>Module</th>
+                    <th>Subject</th>
+                    <th>Author</th>
+                    <th>Rating</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for note in notes %}
+                <tr>
+                    <td><a target="_blank"
+                            href="/static/staticstatic/media/{{ note.file }}">
+                            {{ note.title }}</a></td>
+                    <td>{{ note.module }}</td>
+                    <td>{{ note.subject }}</td>
+                    <td>{{ note.uploader }}</td>
+                    <td>a rating</td>
+                    <td>{{ note.date }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     {% else %}
         There are no notes yet.
     {% endif %}

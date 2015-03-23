@@ -40,13 +40,13 @@
         {% if user.is_authenticated %}
             <li class="pure-menu-item"><a href="/note/profile/" class="pure-menu-link">Profile</a></li>
             <li class="pure-menu-item"><a href="/note/logout/" class="pure-menu-link">Logout</a></li>
-            <li class="pure-menu-item" style="color:gray; left:30%">Welcome, {{ user.get_username }}!</li>
+            <li class="pure-menu-item" style="color:gray; left:21vw">Welcome, {{ user.get_username }}!</li>
             {% if user.userprofile.picture %}
 		        <li class="pure-menu-item"><img src="{{ user.userprofile.picture.url }}"
-                style="position:absolute; max-height: 40px; bottom:-22px; left:25vw" />
+                style="position:absolute; max-height: 40px; bottom:-22px; left:23vw" />
 	        {% else %}
 	            <li class="pure-menu-item"><img src="{% static "images/default.jpg" %}"
-                alt="Default Picture" style="position:absolute; max-height: 40px; bottom:-22px; left:25vw;
+                alt="Default Picture" style="position:absolute; max-height: 40px; bottom:-22px; left:23vw;
                 max-width:10vw;" />
 	        {% endif %} </li>
 
