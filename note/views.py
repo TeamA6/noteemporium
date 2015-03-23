@@ -208,7 +208,7 @@ def user_latest(request):
     except:
         return("No recent Notes.")
 
-    return render(request, '')
+    return render(request, 'noteemp/profile.html', context_dict)
 
 def latest(request):
     context_dict = {}
