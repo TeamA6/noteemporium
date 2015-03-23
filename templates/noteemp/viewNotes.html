@@ -6,7 +6,11 @@
     <strong>There are notes</strong>
 
     {% for note in notes %}
-    <li><a href="static/staticstatic/media/uploaded_files/{{ note.file }}/">{{ note.title }} </a></li>
+        {% if note.module == module %}
+
+             <li><a href="static/staticstatic/media/uploaded_files/{{ note.file }}/">{{ note.title }} </a></li>
+
+        {% endif %}
 <!-- url here needs to change -->
     {% endfor %}
 
