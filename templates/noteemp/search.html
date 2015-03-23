@@ -7,7 +7,7 @@
 {% block content %}
 
     <div class="page-header">
-        <h1>Search with Note Emporium</h1>
+        <h1>Search Notes with Note Emporium</h1>
     </div>
 
 <form method="get" action="/note/search/">
@@ -16,6 +16,7 @@
 <label for="id_q">Search:</label>
            <input type="text" name="q" id="id_q"/>
            <input type="submit" value="Submit"/>
+		   </br>
 		   {% if entry_query %}
 		     {{entry_query}}
 		   {% endif %}
