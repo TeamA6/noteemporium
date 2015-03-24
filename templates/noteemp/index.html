@@ -5,24 +5,24 @@
 <body>
 <div class="pure-g">
     <div class="pure-u-1-2">
-    <h1 style="font-family: Courier; height:5vh">The Note Emporium</h1>
-    <p style="font-family:Courier; max-height:40%">Welcome to the Note Emporium, Glasgow University's second best note sharing site.
+    <h1 style="font-family: Courier">The Note Emporium</h1>
+    <p style="font-family:Courier">Welcome to the Note Emporium, Glasgow University's second best note sharing site.
     This site allows students to share their notes with others from their course.
     Notes are sorted by the module to which they belong. You can search by subject
     from the left, by title from the bar above or by browsing the most recently updated notes, right.</p>
-    <img class="displayed" src="{% static "images/smallPartOfLogo.jpg" %}" width = "30%", height = "100%"
+    <img class="displayed" src="{% static "images/smallPartOfLogo.jpg" %}" width = "100px", height = "100%"
      alt="emporium logo"/><br><p style="font-family:Courier; text-align: center"> - The Note Emporium Team</p>
     </div>
 
     <div class="pure-u-1-24 verticalLine"></div>
     <div class="pure-u-1-24"></div><!-- Space between items -->
 
-    <div class="pure-u-9-24" style="height:30%">
+    <div class="pure-u-9-24">
 
 
         {% if not user.is_authenticated %}
 
-        <h1 style="font-family: Courier">Login</h1>
+        <h1 style="font-family: Courier; height:5%">Login</h1>
         <form method="post" class="pure-form" action="/note/login/">
         {%  csrf_token %}
             <fieldset class="pure-group">
@@ -34,8 +34,8 @@
         </form>
 
         {% endif %}
-        <h1 style="font-family: Courier">How it works</h1><br>
-        <img src="{% static "images/flowchart.jpg" %}" style="height:30vh">
+        <h1 style="font-family: Courier">How it works</h1>
+        <img class="pure-img" src="{% static "images/flowchart.jpg" %}">
     </div>
 </div>
 

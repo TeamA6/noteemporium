@@ -15,10 +15,10 @@
 
         <br/>
         {% if user.userprofile.picture %}
-            <img src="{{ user.userprofile.picture.url }}" style="width:90%; height:auto" />
+            <img class="pure-img" src="{{ user.userprofile.picture.url }}" style="width:90%; height:auto" />
         {% else %}
             You have been given the default display picture
-            <img src="{% static "images/default.jpg" %}" alt="Default Picture" style="width:90%; height:auto"/>
+            <img class="pure-img" src="{% static "images/default.jpg" %}" alt="Default Picture" style="width:90%; height:auto"/>
         {% endif %}
     </div>
     <div class="pure-u-1-2" style="font-family: Courier">

@@ -16,8 +16,8 @@
 <body>
 
 <div id="layout" style="font-family: Courier">
-    <div class="pure-menu pure-menu-horizontal" style="left:0px; max-width:300px">
-        <a href="/note/" class="link" style="height:10vh; width:auto; height:0px">
+    <div class="pure-menu pure-menu-horizontal" style="left:0px; max-width:30%">
+        <a href="/note/" class="link" style="width:10vw; height:auto">
         <img src="{% static "images/black_logo_img.jpg" %}", height = "100%"
         alt="emporium logo" style="left:15px; position:absolute; border: thick black"/><img src="{% static "images/black_text.jpg" %}",
         width = auto height = "110%" alt="emporium logo" style="position:absolute; bottom:0px; left:65px"/></a>
@@ -30,9 +30,9 @@
         </ul>
     </div>
 
-    <div class="pure-menu pure-menu-horizontal" style="width: calc( 100% - 300px ); width:-moz-calc( 100% - 300px );
-     display:inline; left:300px">
-        <ul class="pure-menu-list-h" style="font-size:large; top:-18px; left:5vw">
+    <div class="pure-menu pure-menu-horizontal" style="width: calc( 100% - 20% );
+     display:inline; left:20%">
+        <ul class="pure-menu-list-h" style="font-size:large; top:-18px; left:2%">
             <li class="pure-menu-item"><a href="/note/" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="/note/search/" class="pure-menu-link">Search</a></li>
             <li class="pure-menu-item"><a href="/note/latest" class="pure-menu-link">Latest</a></li>
@@ -40,14 +40,13 @@
         {% if user.is_authenticated %}
             <li class="pure-menu-item"><a href="/note/profile/" class="pure-menu-link">Profile</a></li>
             <li class="pure-menu-item"><a href="/note/logout/" class="pure-menu-link">Logout</a></li>
-            <li class="pure-menu-item" style="color:gray; left:21vw">Welcome, {{ user.get_username }}!</li>
+            <li class="pure-menu-item" style="color:gray; left:10%">Welcome, {{ user.get_username }}!</li>
             {% if user.userprofile.picture %}
 		        <li class="pure-menu-item"><img src="{{ user.userprofile.picture.url }}"
-                style="position:absolute; max-height: 40px; bottom:-22px; left:23vw" />
+                style="position:absolute; max-height: 40px; bottom:-22px; left:10vw" />
 	        {% else %}
 	            <li class="pure-menu-item"><img src="{% static "images/default.jpg" %}"
-                alt="Default Picture" style="position:absolute; max-height: 40px; bottom:-22px; left:23vw;
-                max-width:10vw;" />
+                alt="Default Picture" style="position:absolute; max-height: 40px; bottom:-22px; left:10vw"/>
 	        {% endif %} </li>
 
 

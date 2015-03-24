@@ -6,31 +6,36 @@
 
 {% block content %}
 
-    <div class="page-header">
+    <div class="page-header" style="font-family: Courier">
         <h1>Search Notes with Note Emporium</h1>
     </div>
 
-<form method="get" action="">
+<form method="get" action="" style="font-family: Courier">
           
-<label for="id_q">Search:</label>
+<label for="id_q" style="font-family: Courier">Search:</label>
            <input type="text" name="q" id="id_q"/>
            <input type="submit" value="Submit"/>
 		   </br>
-		   
-		    {% for result in results %}
-			  {% for note in notes %}
-			    {% if note.title == result %}
-				     Here are the results:</br>
-					 </br>
-		             <li><a href= "/static/staticstatic/media/{{ note.file }}/">{{result}}</a></li>
-					 {{note.subject}}</br>
-					 {{note.module}}</br>
-					 {{note.uploader}}</br>
-					 {{note.date}}</br>
-			         </br>
-			 {% endif %} 
-			 {% endfor %}
-			 {% endfor %}
-			 
-        </form>
+
+            {% if results %}
+                <div style="font-family: Courier">
+                <ul>
+                {% for result in results %}
+			        {% for note in notes %}
+			            {% if note.title == result %}
+                            <li>Title: <a href= "/static/staticstatic/media/{{ note.file }}/">{{result}}</a><br />
+                            Uploaded to: {{note.module}} in {{ note.subject }}<br />
+                            By:{{note.uploader}}
+                            On {{note.date}}</li>
+			            {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+                </div>
+            {% else %}
+                <p>Sorry, your search returned no results.</p>
+            {% endif %}
+
+
+</form>
 {% endblock %}

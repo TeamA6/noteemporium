@@ -4,7 +4,6 @@
     list-style: none;
     background: black; /* Standard syntax */
     width: 250px;
-    /*height: 100%;*/
     position: fixed;
     top: 40px;
     right: 0;
@@ -14,26 +13,21 @@
 }
 .pure-menu-horizontal {
     position: absolute;
-    background: black; /* Standard syntax */
+    background: black;
     height: 40px;
 }
 
-.menu-link {
-    width: 250px;
+.pure-menu-link {
     align-self: center;
 }
 
 .pure-menu-list-h {
     float: right;
     position: absolute;
-    right: 100px;
+    right: 10vw;
     top: -15px;
     font-size: small;
     font-weight: bold;
-}
-
-.pure-menu-link-b:hover, .pure-menu-link-b:visited {
-    background: blueviolet;
 }
 
 .pure-menu-link {           /* Change the properties of the links on the menus */
@@ -44,7 +38,7 @@
     background: midnightblue;
 }
 
-body {                                 /* properties of the body of the text */
+body {
     background: url(/static/images/12519624925_6dcdafbf23_b.jpg);
 }
 
@@ -52,7 +46,7 @@ body {                                 /* properties of the body of the text */
     position: inherit;
     background: black;
     color: white;
-    padding: 15px;
+    padding: 2vh 2vw;
     font-family: Courier;
     font-weight: bold;
 }
@@ -74,7 +68,7 @@ This is the parent `<div>` that contains the menu and the content area.
         left: 150px;
     }
 /*
-The content `<div>` is where all your content goes.
+The content `<div>` is where all information goes.
 */
 .content {
     position: fixed;
@@ -88,12 +82,17 @@ The content `<div>` is where all your content goes.
     line-height: 1.6em;
     background: white;
     border: solid;
+    overflow: hidden;
 }
 
 .verticalLine {
     border-right: thin dashed #000000;
+    height:100vh;
 }
 
+/*
+used to center images
+*/
 IMG.displayed {
     display: block;
     margin-left: auto;
