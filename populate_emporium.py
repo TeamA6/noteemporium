@@ -111,6 +111,34 @@ def populate():
 
     add_module(sub=computer_science_sub, moduleTitle="Computing Fundamentals 2", abb="CF2")
 
+    add_module(sub=computer_science_sub, moduleTitle="Programming", abb="1P")
+
+    add_module(sub=computer_science_sub, moduleTitle="Computational Thinking", abb="1CT")
+
+    add_module(sub=computer_science_sub, moduleTitle="Further Programming", abb="1PX")
+
+    add_module(sub=computer_science_sub, moduleTitle="Information Management and Human Computer Interaction", abb="1Q")
+
+    add_module(sub=computer_science_sub, moduleTitle="Systems", abb="1S")
+
+    add_module(sub=computer_science_sub, moduleTitle="Introduction to Linux", abb="3L")
+
+    add_module(sub=computer_science_sub, moduleTitle="Advanced Programming 3", abb="AP3")
+
+    add_module(sub=computer_science_sub, moduleTitle="Algorithms 3", abb="3X")
+
+    add_module(sub=computer_science_sub, moduleTitle="Database Systems 3", abb="DS3")
+
+    add_module(sub=computer_science_sub, moduleTitle="Interactive Systems 3", abb="IS3")
+
+    add_module(sub=computer_science_sub, moduleTitle="Networked Systems 3", abb="NS3")
+
+    add_module(sub=computer_science_sub, moduleTitle="Operating Systems 3", abb="OS3")
+
+    add_module(sub=computer_science_sub, moduleTitle="Professional Software Development 3", abb="PSD3")
+
+    add_module(sub=computer_science_sub, moduleTitle="Programming Languages 3", abb="PL3")
+
     add_module(sub=french_sub, moduleTitle="French Language 1", abb="FL1")
 
     add_module(sub=french_sub, moduleTitle="French Language 2", abb="FL2")
