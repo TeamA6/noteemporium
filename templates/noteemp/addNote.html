@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<div style="font-family: Courier">
+<h1>Add a Note</h1>
+for the module: {{ module }} in {{ subject }}
 <form method="post" enctype="multipart/form-data">
 {% csrf_token %}
 <ul>
@@ -12,5 +15,5 @@
     </form>
 
     </body>
-
+</div>
 {% endblock %}
