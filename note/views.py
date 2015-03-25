@@ -110,7 +110,7 @@ def add_module(request, subject_name_slug):
 
     context_dict = {'form':form, 'subject': sub}
 
-    return render(request, 'rango/add_module.html', context_dict)
+    return render(request, 'noteemp/add_module.html', context_dict)
 
 @login_required
 def user_logout(request):
@@ -213,7 +213,7 @@ def latest(request):
         return("There are no notes yet.")
 
     return render(request, 'noteemp/latest.html', context_dict)
-    
+
 def search(request):
     query_string = ''
     context_dict = {}
@@ -238,7 +238,7 @@ def search(request):
         query_string = request.GET['q']
         foundNotes1 = get_query(query_string)
         for i in foundNotes1:
-            j = str(i).lower()
+            j = str(i)
             foundNotes += [j]
 
     for a in foundNotes:

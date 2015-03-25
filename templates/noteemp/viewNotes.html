@@ -32,5 +32,7 @@
     <strong>No Notes for this module!!!!</strong>
 {% endif %}
     <br/>
+    {% if user.is_authenticated %}
         <a href = " {{ request.build_absolute_uri }}create/">Add Note </a>
+    {% endif %}
 {% endblock %}

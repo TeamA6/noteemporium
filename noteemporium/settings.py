@@ -31,9 +31,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 SECRET_KEY = 'i4$dwvg7k)@n*9(qu=rej!o-zyh9!1(71^w^%!eo&eh5w=2hnw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['teama6.pythonanywhere.com']
 
