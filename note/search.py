@@ -37,4 +37,3 @@ def get_query(query_string):
     #print found, "hello"
     #print type(found)
     return found
-
