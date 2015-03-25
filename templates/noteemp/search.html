@@ -10,39 +10,40 @@
         <h1>Search Notes with Note Emporium</h1>
     </div>
     <div class="pure-g">
-      <div class="pure-u-1-4">
 
-<form method="get" action="">
-<label for="id_q">Search:</label>
-           <input type="text" name="q" id="id_q"/>
-           <input type="submit" value="Submit"/>
-		   </br>
-		   <br />
-		   </div>
-<div class="pure-u-3-4">
-              {% if haveRes %}
-                Result(s) Found:</br>
-			  {% else %}
-			    </br>
-			    Please Type here.</br>
-			    (If no result turns up, please modify your search and try again.)
-			  {% endif %}
+        <div class="pure-u-1-4" style="font-family: Courier">
+            <form method="get" action="">
+                <label for="id_q">Search:</label>
+                <input type="text" name="q" id="id_q"/>
+                <br />
+                <input class="pure-input-rounded" type="submit" value="Submit"/>
+            </form>
+       </div>
 
-		    {% for result in results %}
-			  {% for note in notes %}
-			    {% if note.title == result %}
-		             <li>Title: <a href= "/static/staticstatic/media/{{ note.file }}">{{result}}</a></li>
-					 Subject: {{note.subject}}</li></br>
-					 Module: {{note.module}}</li></br>
-					 Author: {{note.uploader}}</li></br>
-					 Date Uploaded: {{note.date}}</li></br>
-			         </br>
-			    {% endif %}
-              {% endfor %}
-            {% endfor %}
+        <div class="pure-u-3-4" style="font-family: Courier">
+            {% if haveRes %}
+                <h4>Your search returned:</h4>
+                <ul class="pure-menu-list">
+                {% for result in results %}
+                    {% for note in notes %}
+                        {% if note.title == result %}
+                            <li>Title: <a href= "/static/staticstatic/media/{{ note.file }}">{{result}}</a></li>
+                            Subject: {{note.subject}}</li></br>
+                            Module: {{note.module}}</li></br>
+                            Author: {{note.uploader}}</li></br>
+                            Date Uploaded: {{note.date}}</li></br>
+                            </br>
+			            {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            {% else %}
+			    Your search returned no results, please modify your search and try again
+            {% endif %}
 
-        </form>
-    </div>
+
+
+        </div>
     </div>
 
 {% endblock %}

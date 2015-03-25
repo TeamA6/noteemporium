@@ -23,7 +23,7 @@
     </div>
     <div class="pure-u-1-2" style="font-family: Courier">
         <h3>Your recently uploaded notes</h3>
-        <table class="pure-table">
+        <table class="pure-table" style="display:block; height:50vh; overflow-y:scroll">
             <thead style="background:black; color:white">
                 <tr>
                     <th>Title</th>
@@ -36,7 +36,9 @@
             {% for note in notes %}
                 {% if note.uploader == user %}
                     <tr class="pure-table-odd">
-                        <td>{{ note }}</td>
+                        <td><a target="_blank"
+                            href="/static/staticstatic/media/{{ note.file }}">
+                            {{ note }}</a></td>
                         <td>{{ note.module }}</td>
                         <td>{{ note.subject }}</td>
                         <td>{{ note.date }}</td>
