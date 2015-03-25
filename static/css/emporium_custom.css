@@ -98,3 +98,7 @@ IMG.displayed {
     margin-left: auto;
     margin-right: auto
 }
+
+.pure-button-report:visited {
+    background: white;
+}
