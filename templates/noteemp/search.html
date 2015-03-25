@@ -17,7 +17,7 @@
            <input type="text" name="q" id="id_q"/>
            <input type="submit" value="Submit"/>
 		   </br>
-		   </br>
+		   <br />
 		   </div>
 <div class="pure-u-3-4">
               {% if haveRes %}
@@ -31,15 +31,15 @@
 		    {% for result in results %}
 			  {% for note in notes %}
 			    {% if note.title == result %}
-		             <li><a href= "/static/staticstatic/media/{{ note.file }}">{{result}}</a></li>
+		             <li>Title: <a href= "/static/staticstatic/media/{{ note.file }}">{{result}}</a></li>
 					 Subject: {{note.subject}}</li></br>
 					 Module: {{note.module}}</li></br>
-					 Uploader: {{note.uploader}}</li></br>
+					 Author: {{note.uploader}}</li></br>
 					 Date Uploaded: {{note.date}}</li></br>
 			         </br>
-			 {% endif %}
-			 {% endfor %}
-			 {% endfor %}
+			    {% endif %}
+              {% endfor %}
+            {% endfor %}
 
         </form>
     </div>

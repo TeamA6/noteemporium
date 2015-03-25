@@ -1,4 +1,3 @@
-
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'noteemporium.settings')
 
@@ -23,7 +22,7 @@ def populate():
 
     classics_sub = add_sub("Classics")
 
-    comparitive_literature_sub = add_sub("Comparative Literature")
+    comparative_literature_sub = add_sub("Comparative Literature")
 
     computer_science_sub = add_sub("Computer Science")
 
@@ -153,13 +152,27 @@ def populate():
 
     add_module(sub=mechanical_engineering_sub, moduleTitle="MECHANICS OF SOLIDS AND STRUCTURES 4N", abb="MECHSOLSTR4N")
 
-    add_module(sub=mathematics_sub, moduleTitle="Maths 2A", abb="MATHS2A")
+    add_module(sub=mathematics_sub, moduleTitle="2A: Multivariable Calculus", abb="2A")
 
-    add_module(sub=mathematics_sub, moduleTitle="Maths 2B", abb="MATHS2B")
+    add_module(sub=mathematics_sub, moduleTitle="2B: Linear Algebra", abb="2B")
 
-    add_module(sub=mathematics_sub, moduleTitle="Maths 1R", abb="MATHS1R")
+    add_module(sub=mathematics_sub, moduleTitle="2C: Applied Maths", abb="2C")
 
-    add_module(sub=mathematics_sub, moduleTitle="Maths 1S", abb="MATHS1S")
+    add_module(sub=mathematics_sub, moduleTitle="2D: Applications of Linear Algebra and Multivariable Calculus", abb="2D")
+
+    add_module(sub=mathematics_sub, moduleTitle="2E: Real Analysis", abb="2E")
+
+    add_module(sub=mathematics_sub, moduleTitle="2F: Further Pure", abb="2F")
+
+    add_module(sub=mathematics_sub, moduleTitle="2T: Discrete Mathematics", abb="2T")
+
+    add_module(sub=mathematics_sub, moduleTitle="1R: Calculus", abb="1R")
+
+    add_module(sub=mathematics_sub, moduleTitle="1S: Co-ordinate geometry", abb="1S")
+
+    add_module(sub=mathematics_sub, moduleTitle="1X: Advanced Calculus", abb="1X")
+
+    add_module(sub=mathematics_sub, moduleTitle="1Y: Advanced Geometry", abb="1Y")
 
     add_module(sub=mathematics_sub, moduleTitle="Maths 3E", abb="MATHS3E")
 
