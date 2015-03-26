@@ -38,6 +38,7 @@ class Module(models.Model):
 class Note(models.Model):
     uploader = models.ForeignKey(User)
     title = models.CharField(max_length=128,unique=True)
+    slugTitle = models.SlugField()
     subject = models.CharField(max_length=128)
     reported = models.IntegerField(default=0)
     module = models.CharField(max_length=128)

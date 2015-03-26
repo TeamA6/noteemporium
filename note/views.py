@@ -158,7 +158,6 @@ def module(request, module_abb, subject_name_slug):
     context_dict['module'] = module_abb
     context_dict['subject'] = subject_name_slug
     #try:
-
     #except Subject.DoesNotExist:
     #   pass
     # Go render the response and return it to the client.
@@ -251,9 +250,6 @@ def search(request):
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string1 = request.GET['q']
         
-        if query_string1 == '':
-            d = True
-        
         for i in query_string1:
             if i != ' ':
                 query_string+=i
@@ -272,6 +268,8 @@ def search(request):
         c = True
     if c:
         context_dict['haveRes']='have'
+        #context_dict['foundNotes']=foundNotes
+        #context_dict['query_string']=query_string
 
     context_dict['results']=results
 
@@ -280,12 +278,6 @@ def search(request):
                           context_dict,
                           context_instance=RequestContext(request))
 
-def reported(request,title):
+def reported(request):
     context_dict = {}
-    try:
-        note = Note.objects.get(title=title)
-        note.reported = note.reported + 1
-        note.save()
-    except:
-        context_dict['error'] = "There has been an error while reporting the note."
     return render(request, 'noteemp/reported.html', context_dict)
