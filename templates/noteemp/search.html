@@ -21,6 +21,8 @@
        </div>
 
         <div class="pure-u-3-4" style="font-family: Courier">
+        {% if start %}
+        {% else %}
             {% if haveRes %}
                 <h4>Your search returned:</h4>
                 <ul class="pure-menu-list">
@@ -39,6 +41,7 @@
                 </ul>
             {% else %}
 			    Your search returned no results, please modify your search and try again
+            {% endif %}
             {% endif %}
 
 
