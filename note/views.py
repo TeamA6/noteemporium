@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 from models import *
 from django.core.context_processors import csrf
 from forms import NoteForm
-from note.search import get_query
+from note.search import *
 
 def index(request):
     response = render(request, 'noteemp/index.html', )
@@ -216,42 +216,81 @@ def latest(request):
     return render(request, 'noteemp/latest.html', context_dict)
 
 def search(request):
+    query_string1 = ''
     query_string = ''
     context_dict = {}
     results=[]
 
+    notes = None
     notes = Note.objects.all()
     context_dict['notes']=notes
+    #userprofiles = UserProfile.objects.all()
+    #context_dict['userprofiles']=userprofiles
 
-    noteTitles=[]
-    for i in notes:
-        j = str(i.title).lower()
-        noteTitles += [j]
-
+    foundNotes1 = None
+#   foundAuthors1 = None
+    foundSubjects1 = None
+    foundModules1 = None
     foundNotes=[]
+#   foundAuthors = []
+    foundSubjects = []
+    foundModules = []
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string1 = request.GET['q']
         
         for i in query_string1:
             if i != ' ':
-                query_string+=i
+                if i not in query_string:
+                    query_string+=i
                 
         foundNotes1 = get_query(query_string)
+#       foundAuthors1 = get_author(query_string)
+        foundSubjects1 = get_subject(query_string)
+        foundModules1 = get_module(query_string)
+
         for i in foundNotes1:
             j = str(i)
             foundNotes += [j]
 
+#        for i in foundAuthors1:
+#            j = str(i)
+#            foundAuthors += [j]
+
+        for i in foundSubjects1:
+            j = str(i)
+            foundSubjects += [j]
+
+        for i in foundModules1:
+            j = str(i)
+            foundModules += [j]
+        #print foundModules
+
     for a in foundNotes:
         if a not in results:
             results+=[a]
+
+#    for a in foundAuthors:
+#        if a not in results:
+#            results+=[a]
+
+    for b in foundSubjects:
+        if b not in results:
+            results+=[b]
+            
+
+    for c in foundModules:
+        if c not in results:
+            results+=[c]
 
     c = False
     if results:
         c = True
     if c:
         context_dict['haveRes']='have'
-
     context_dict['results']=results
+    print context_dict
+
+    #found_entries = Entry.objects.filter(entry_query).order_by('date')
 
     return render_to_response('noteemp/search.html',
                           context_dict,
