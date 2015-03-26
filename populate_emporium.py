@@ -180,6 +180,18 @@ def populate():
 
     add_module(sub=accounting_and_finance_sub, moduleTitle="Accounting 2", abb="ACC2")
 
+    add_module(sub=accounting_and_finance_sub, moduleTitle="Introduction to Business Reporting", abb="IBR")
+
+    add_module(sub=accounting_and_finance_sub, moduleTitle="Financial Accounting 1", abb="FA1")
+
+    add_module(sub=accounting_and_finance_sub, moduleTitle="Management Accounting and Control", abb="MAC")
+
+    add_module(sub=archaeology_sub, moduleTitle="1A: Archaeology of Scotland", abb="1A")
+
+    add_module(sub=archaeology_sub, moduleTitle="1B: Archaeology in the Modern World", abb="1B")
+
+    add_module(sub=archaeology_sub, moduleTitle="2J: Europe and the Mediterranean", abb="2J")
+
     for c in Subject.objects.all():
         for p in Module.objects.filter(sub=c):
             print "- {0} - {1}".format(str(c), str(p))
