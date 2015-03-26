@@ -263,6 +263,8 @@ def search(request):
         context_dict['haveRes']='have'
     if d:
         context_dict['start']='start'
+        else:
+            context_dict['noStart']='noStart'
         #context_dict['foundNotes']=foundNotes
         #context_dict['query_string']=query_string
     context_dict['results']=results
