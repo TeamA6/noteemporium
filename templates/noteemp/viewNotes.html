@@ -22,7 +22,7 @@
                             {{ note.title }}</a></td>
                     <td>{{ note.uploader }}</td>
                     <td>{{ note.date }}</td>
-                    <td><a class="pure-link" href="#" action="{{ note.reported }}=True" style="color:red">Report</a></td>
+                    <td><a class="pure-link" href="/note/reported" style="color:red">Report</a></td>
                 </tr>
             {% endif %}
             {% endfor %}

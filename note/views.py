@@ -263,3 +263,6 @@ def search(request):
                           context_dict,
                           context_instance=RequestContext(request))
 
+def reported(request):
+    context_dict = {}
+    return render(request, 'noteemp/reported.html', context_dict)
