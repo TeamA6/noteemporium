@@ -251,9 +251,6 @@ def search(request):
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string1 = request.GET['q']
         
-        if query_string1 == '':
-            d = True
-        
         for i in query_string1:
             if i != ' ':
                 query_string+=i
@@ -272,11 +269,6 @@ def search(request):
         c = True
     if c:
         context_dict['haveRes']='have'
-
-    if d:
-        context_dict['start']='start'
-    else:
-        context_dict['noStart']='noStart'
         #context_dict['foundNotes']=foundNotes
         #context_dict['query_string']=query_string
 
