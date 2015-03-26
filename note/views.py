@@ -61,11 +61,26 @@ def register(request):
 
 
 def view_notes(request, subject_name_slug,module_abb):
+
     args = {}
     args.update(csrf(request))
     args['notes'] = Note.objects.all()
     args['subject'] = subject_name_slug
     args['module'] = module_abb
+    args['subjectTitle'] = Subject.objects.get(slug=subject_name_slug)
+
+    args['moduleBool'] = False
+    for note in args['notes']:
+        if note.module == args['subjectTitle']:
+            args['moduleBool'] = True
+
+
+    args['moduleTitle'] = Module.objects.filter(sub=Subject.objects.all())#sub=args['subjectTitle'])
+
+    #for sub in args['subjectTitle']:
+    #   if sub.
+
+
     return render(request,'noteemp/viewNotes.html', args)
 
 
@@ -200,6 +215,7 @@ def create(request, subject_name_slug, module_abb):
     context_dict.update(csrf(request))
     context_dict['subject'] = subject_name_slug
     context_dict['module'] = module_abb
+
     context_dict['form'] = form  # pass the form to the html
 
     return render(request, 'noteemp/addNote.html', context_dict)
@@ -256,6 +272,14 @@ def search(request):
         c = True
     if c:
         context_dict['haveRes']='have'
+
+    if d:
+        context_dict['start']='start'
+    else:
+        context_dict['noStart']='noStart'
+        #context_dict['foundNotes']=foundNotes
+        #context_dict['query_string']=query_string
+
     context_dict['results']=results
 
     #found_entries = Entry.objects.filter(entry_query).order_by('date')
