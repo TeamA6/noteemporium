@@ -215,6 +215,7 @@ def latest(request):
     return render(request, 'noteemp/latest.html', context_dict)
 
 def search(request):
+    query_string1 = ''
     query_string = ''
     context_dict = {}
     results=[]
@@ -235,7 +236,12 @@ def search(request):
     foundNotes1 = None
     foundNotes=[]
     if ('q' in request.GET) and request.GET['q'].strip():
-        query_string = request.GET['q']
+        query_string1 = request.GET['q']
+        
+        for i in query_string1:
+            if i != ' ':
+                query_string+=i
+                
         foundNotes1 = get_query(query_string)
         for i in foundNotes1:
             j = str(i)
