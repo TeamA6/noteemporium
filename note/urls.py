@@ -13,5 +13,5 @@ urlpatterns = patterns('',
         url(r'^profile/', views.profile, name='profile'),
         url(r'^latest/', views.latest, name='latest'),
         url(r'^search/', views.search, name='search'),
-        url(r'^reported/', views.reported, name='reported'),
+        url(r'^reported/(?P<title>[\w\-]+)/$', views.reported, name='reported'),
 		)

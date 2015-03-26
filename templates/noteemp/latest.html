@@ -10,6 +10,7 @@
                     <th>Subject</th>
                     <th>Author</th>
                     <th>Time</th>
+                    <th>Report</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,7 @@
                     <td>{{ note.subject }}</td>
                     <td>{{ note.uploader }}</td>
                     <td>{{ note.date }}</td>
+                    <td><a class="pure-link" href="/note/reported/{{ note.title }}/" style="color:red">Report</a></td>
                 </tr>
             {% endfor %}
             </tbody>

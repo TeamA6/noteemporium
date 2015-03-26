@@ -273,13 +273,6 @@ def search(request):
     if c:
         context_dict['haveRes']='have'
 
-    if d:
-        context_dict['start']='start'
-    else:
-        context_dict['noStart']='noStart'
-        #context_dict['foundNotes']=foundNotes
-        #context_dict['query_string']=query_string
-
     context_dict['results']=results
 
     #found_entries = Entry.objects.filter(entry_query).order_by('date')
@@ -287,6 +280,12 @@ def search(request):
                           context_dict,
                           context_instance=RequestContext(request))
 
-def reported(request):
+def reported(request,title):
     context_dict = {}
+    try:
+        note = Note.objects.get(title=title)
+        note.reported = note.reported + 1
+        note.save()
+    except:
+        context_dict['error'] = "There has been an error while reporting the note."
     return render(request, 'noteemp/reported.html', context_dict)
