@@ -33,9 +33,40 @@
                             Author: {{note.uploader}}</li></br>
                             Date Uploaded: {{note.date}}</li></br>
                             </br>
+		        {% endif %}
+			{% if note.subject == result %}
+                            <li>Title: <a href= "/static/staticstatic/media/{{ note.file }}">{{result}}</a></li>
+                            Subject: {{note.subject}}</li></br>
+                            Module: {{note.module}}</li></br>
+                            Author: {{note.uploader}}</li></br>
+                            Date Uploaded: {{note.date}}</li></br>
+                            </br>
 			{% endif %}
-                    {% endfor %}
+			{% if note.module == result %}
+                            <li>Title: <a href= "/static/staticstatic/media/{{ note.file }}">{{result}}</a></li>
+                            Subject: {{note.subject}}</li></br>
+                            Module: {{note.module}}</li></br>
+                            Author: {{note.uploader}}</li></br>
+                            Date Uploaded: {{note.date}}</li></br>
+                            </br>
+			{% endif %}
+		    {% endfor %}
                 {% endfor %}
+						
+		<!-- {% for result in results %}
+		        {% for userprofile in userprofiles %}
+			    {% for note in notes %}
+				{% if userprofile.user.username == result %}
+                                    <li>Title: <a href= "/static/staticstatic/media/{{ note.file }}">{{note.title}}</a></li>
+                                    Subject: {{note.subject}}</li></br>
+                                    Module: {{note.module}}</li></br>
+                                    Author: {{note.uploader}}</li></br>
+                                    Date Uploaded: {{note.date}}</li></br>
+                                    </br>
+				{% endif %}
+			    {% endfor %}
+			{% endfor %}
+                     {% endfor %} -->
                 </ul>
             {% else %}
 			    Your search returned no results, please modify your search and try again
