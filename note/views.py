@@ -278,6 +278,12 @@ def search(request):
                           context_dict,
                           context_instance=RequestContext(request))
 
-def reported(request):
+def reported(request,title):
     context_dict = {}
+    try:
+        note = Note.objects.get(title=title)
+        note.reported = note.reported + 1
+        note.save()
+    except:
+        context_dict['error'] = "There has been an error while reporting the note."
     return render(request, 'noteemp/reported.html', context_dict)
