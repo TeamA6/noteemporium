@@ -30,6 +30,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('title', models.CharField(unique=True, max_length=128)),
+                ('slugTitle', models.SlugField(default=b'a', unique=True)),
                 ('subject', models.CharField(max_length=128)),
                 ('reported', models.IntegerField(default=0)),
                 ('module', models.CharField(max_length=128)),

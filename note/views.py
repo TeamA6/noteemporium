@@ -11,8 +11,6 @@ from django.core.urlresolvers import reverse
 from note.forms import UserForm, UserProfileForm
 from note.models import Module, Subject
 from django.contrib.auth.models import User
-# from myproject.myapp.models import Note
-#from myproject.myapp.forms import DocumentForm
 from models import *
 from django.core.context_processors import csrf
 from forms import NoteForm
@@ -75,11 +73,7 @@ def view_notes(request, subject_name_slug,module_abb):
             args['moduleBool'] = True
 
 
-    args['moduleTitle'] = Module.objects.filter(sub=Subject.objects.all())#sub=args['subjectTitle'])
-
-    #for sub in args['subjectTitle']:
-    #   if sub.
-
+    args['moduleTitle'] = Module.objects.filter(sub=Subject.objects.all())
 
     return render(request,'noteemp/viewNotes.html', args)
 
@@ -116,7 +110,6 @@ def add_module(request, subject_name_slug):
                 module = form.save(commit=False)
                 module.sub = sub
                 page.save()
-                # probably better to use a redirect here.
                 return HttpResponseRedirect('/note/')
         else:
             print form.errors
@@ -142,7 +135,7 @@ def subject(request, subject_name_slug):
         subject = Subject.objects.get(slug=subject_name_slug)
         context_dict['subject_name'] = subject.subjectTitle
 
-        modules = Module.objects.filter(sub=subject)  # filter returns >= 1 model instance
+        modules = Module.objects.filter(sub=subject)
 
         context_dict['modules'] = modules
         context_dict['subject'] = subject
@@ -186,7 +179,6 @@ def create(request, subject_name_slug, module_abb):
 
     try:
         sub = Subject.objects.get(slug=subject_name_slug)
-        u = User.objects.get(username=request.user.username)
     except Subject.DoesNotExist:
         sub = None
 
@@ -199,14 +191,8 @@ def create(request, subject_name_slug, module_abb):
                page.subject = sub
                page.module = module_abb
                page.uploader = request.user
-               #page.date = models.DateTimeField(auto_now_add=True, blank=True)
-               #page.date = datetime.datetime.now()
                page.save()
-               #Note.subject = subject_name_slug
-               # u = User.objects.get(username=request.user.username)
-               # Note.module = module_abb # not really abb
-               # form.save()
-               return HttpResponseRedirect('/note/')  # should redirect to a success screen
+               return HttpResponseRedirect('/note/')
 
     else:
         form = NoteForm()
@@ -230,12 +216,10 @@ def latest(request):
     return render(request, 'noteemp/latest.html', context_dict)
 
 def search(request):
-    query_string1 = ''
     query_string = ''
     context_dict = {}
     results=[]
 
-    notes = None
     notes = Note.objects.all()
     context_dict['notes']=notes
 
@@ -243,9 +227,7 @@ def search(request):
     for i in notes:
         j = str(i.title).lower()
         noteTitles += [j]
-    #context_dict['noteTitles'] = noteTitles
 
-    foundNotes1 = None
     foundNotes=[]
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string1 = request.GET['q']
@@ -268,20 +250,17 @@ def search(request):
         c = True
     if c:
         context_dict['haveRes']='have'
-        #context_dict['foundNotes']=foundNotes
-        #context_dict['query_string']=query_string
 
     context_dict['results']=results
 
-    #found_entries = Entry.objects.filter(entry_query).order_by('date')
     return render_to_response('noteemp/search.html',
                           context_dict,
                           context_instance=RequestContext(request))
 
-def reported(request,title):
+def reported(request,slugTitle):
     context_dict = {}
-    try:
-        note = Note.objects.get(title=title)
+    try:                            # if there are notes with that title, report them, otherwise show an error message.
+        note = Note.objects.get(slugTitle=slugTitle)
         note.reported = note.reported + 1
         note.save()
     except:

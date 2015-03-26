@@ -38,12 +38,16 @@ class Module(models.Model):
 class Note(models.Model):
     uploader = models.ForeignKey(User)
     title = models.CharField(max_length=128,unique=True)
-    slugTitle = models.SlugField()
+    slugTitle = models.SlugField(unique=True,default='a')
     subject = models.CharField(max_length=128)
     reported = models.IntegerField(default=0)
     module = models.CharField(max_length=128)
     date = models.DateTimeField(default=datetime.now, blank=True)
     file = models.FileField(upload_to=get_upload_file_name)
+
+    def save(self, *args, **kwargs):
+        self.slugTitle = slugify(self.title)
+        super(Note, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.title
