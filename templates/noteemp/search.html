@@ -21,10 +21,6 @@
        </div>
 
         <div class="pure-u-3-4" style="font-family: Courier">
-        {% if start %}
-          Search notes by title
-        {% endif %}
-        {% if noStart %}
             {% if haveRes %}
                 <h4>Your search returned:</h4>
                 <ul class="pure-menu-list">
@@ -37,15 +33,13 @@
                             Author: {{note.uploader}}</li></br>
                             Date Uploaded: {{note.date}}</li></br>
                             </br>
-			            {% endif %}
+			{% endif %}
                     {% endfor %}
                 {% endfor %}
                 </ul>
             {% else %}
 			    Your search returned no results, please modify your search and try again
             {% endif %}
-            {% endif %}
-
 
 
         </div>
