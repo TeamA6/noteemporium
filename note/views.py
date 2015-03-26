@@ -224,9 +224,6 @@ def search(request):
     notes = Note.objects.all()
     context_dict['notes']=notes
 
-    #for note in notes:
-        #print note.title
-
     noteTitles=[]
     for i in notes:
         j = str(i.title).lower()
@@ -235,7 +232,6 @@ def search(request):
 
     foundNotes1 = None
     foundNotes=[]
-    d = False
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string1 = request.GET['q']
         
@@ -252,7 +248,6 @@ def search(request):
             foundNotes += [j]
 
     for a in foundNotes:
-        #for b in noteTitles:
         if a not in results:
             results+=[a]
 
@@ -261,17 +256,9 @@ def search(request):
         c = True
     if c:
         context_dict['haveRes']='have'
-    if d:
-        context_dict['start']='start'
-        else:
-            context_dict['noStart']='noStart'
-        #context_dict['foundNotes']=foundNotes
-        #context_dict['query_string']=query_string
     context_dict['results']=results
 
-        #found_entries = Entry.objects.filter(entry_query).order_by('-pub_date')
-    #print context_dict
-
+    #found_entries = Entry.objects.filter(entry_query).order_by('date')
     return render_to_response('noteemp/search.html',
                           context_dict,
                           context_instance=RequestContext(request))
