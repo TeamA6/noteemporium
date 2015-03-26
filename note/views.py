@@ -272,15 +272,14 @@ def search(request):
         c = True
     if c:
         context_dict['haveRes']='have'
-<<<<<<< HEAD
+
     if d:
         context_dict['start']='start'
     else:
         context_dict['noStart']='noStart'
         #context_dict['foundNotes']=foundNotes
         #context_dict['query_string']=query_string
-=======
->>>>>>> origin/master
+
     context_dict['results']=results
 
     #found_entries = Entry.objects.filter(entry_query).order_by('date')
