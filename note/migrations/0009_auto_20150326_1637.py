@@ -7,12 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('note', '0005_auto_20150325_1442'),
+        ('note', '0008_auto_20150326_1636'),
     ]
 
     operations = [
-        migrations.RemoveField(
+        migrations.AlterField(
             model_name='note',
-            name='reported',
+            name='title',
+            field=models.CharField(unique=True, max_length=128),
+            preserve_default=True,
         ),
     ]

@@ -15,28 +15,6 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-class Note(models.Model):
-    uploader = models.ForeignKey(User)
-    # note_id = models.IntegerField(unique=True)
-    title = models.CharField(max_length=128)
-    subject = models.CharField(max_length=128)
-    module = models.CharField(max_length=128)
-    date = models.DateTimeField(default=datetime.now, blank=True)#date = models.DateField(strftime("%d/%m/%Y %H:%M", gmtime()))
-    # format = models.CharField(max_length=128)      # list of possible values
-    file = models.FileField(upload_to=get_upload_file_name) # get a string to save file to
-
-    def __unicode__(self):
-        return self.title
-
-
-class Rating(models.Model):
-    rating_id = models.IntegerField(unique=True)
-    note = models.ForeignKey(Note)
-    stars = models.IntegerField()
-
-    def __unicode__(self):
-        return self.note
-
 class Subject(models.Model):
     subjectTitle = models.CharField(max_length=128, unique=True)
     slug = models.SlugField(unique=True)
@@ -57,5 +35,22 @@ class Module(models.Model):
         return self.moduleTitle
 
 
-class Document(models.Model):
-    docfile = models.FileField(upload_to='documents/%Y/%m/%d')
+class Note(models.Model):
+    uploader = models.ForeignKey(User)
+    title = models.CharField(max_length=128,unique=True)
+    subject = models.CharField(max_length=128)
+    reported = models.IntegerField(default=0)
+    module = models.CharField(max_length=128)
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    file = models.FileField(upload_to=get_upload_file_name)
+
+    def __unicode__(self):
+        return self.title
+
+class Rating(models.Model):
+    rating_id = models.IntegerField(unique=True)
+    note = models.ForeignKey(Note)
+    stars = models.IntegerField()
+
+    def __unicode__(self):
+        return self.note

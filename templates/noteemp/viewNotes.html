@@ -2,7 +2,9 @@
 {% load staticfiles %}
 {% block content %}
 
-<h1 style="font-family:courier">{{ subject }} / {{ module }}</h1>
+<h1 style="font-family:courier">
+    {{ subjectTitle }}
+            / {{ module }}</h1>
 
     <table class="pure-table">
             <thead style="background:black; color:white">
@@ -22,7 +24,7 @@
                             {{ note.title }}</a></td>
                     <td>{{ note.uploader }}</td>
                     <td>{{ note.date }}</td>
-                    <td><a class="pure-link" href="#" action="{{ note.reported }}=True" style="color:red">Report</a></td>
+                    <td><a class="pure-link" href="/note/reported" style="color:red">Report</a></td>
                 </tr>
             {% endif %}
             {% endfor %}
@@ -30,11 +32,11 @@
     </table>
 
 
-{% if note in module %}
-    <strong>No Notes for this module!!!!</strong>
-{% endif %}
     <br/>
     {% if user.is_authenticated %}
         <a href = " {{ request.build_absolute_uri }}create/">Add Note </a>
+
+        {% else %}
+        <p>You must me logged in to create a note!</p>
     {% endif %}
 {% endblock %}
