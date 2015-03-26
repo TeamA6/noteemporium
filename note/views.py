@@ -239,7 +239,7 @@ def search(request):
         query_string1 = request.GET['q']
         
         d = False
-        if query_string1 = '':
+        if query_string1 == '':
             d = True
         
         for i in query_string1:
