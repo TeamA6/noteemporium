@@ -235,10 +235,10 @@ def search(request):
 
     foundNotes1 = None
     foundNotes=[]
+    d = False
     if ('q' in request.GET) and request.GET['q'].strip():
         query_string1 = request.GET['q']
         
-        d = False
         if query_string1 == '':
             d = True
         
