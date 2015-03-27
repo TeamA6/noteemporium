@@ -208,7 +208,7 @@ def create(request, subject_name_slug, module_abb):
 def latest(request):
     context_dict = {}
     try:
-        notes = Note.objects.order_by('-date')[:5]
+        notes = Note.objects.order_by('-date')[:10]
         context_dict['notes'] = notes
     except:
         return("There are no notes yet.")
